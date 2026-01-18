@@ -8,68 +8,124 @@
   <meta name="description" content="Naladimarth — Independent apps & utilities." />
 
   <style>
+    :root {
+      --bg: #0b0d10;
+      --fg: #eaeaf0;
+      --muted: #9aa0aa;
+      --accent: #7c7cff;
+      --glow: rgba(124,124,255,0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background: #ffffff;
-      color: #111;
+      background: radial-gradient(
+        1200px 600px at 50% -20%,
+        rgba(124,124,255,0.15),
+        transparent 60%
+      ), var(--bg);
+      color: var(--fg);
     }
 
     main {
-      max-width: 900px;
+      max-width: 980px;
       margin: auto;
-      padding: 96px 24px;
+      padding: 120px 24px 96px;
+      position: relative;
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 12px;
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
     }
 
     p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #555;
-      max-width: 520px;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    .accent {
+      color: var(--fg);
+      text-shadow: 0 0 24px var(--glow);
     }
 
     nav {
-      margin-top: 40px;
+      margin-top: 48px;
+      display: flex;
+      gap: 28px;
     }
 
     nav a {
-      margin-right: 24px;
       text-decoration: none;
       font-weight: 500;
-      color: #000;
-      border-bottom: 2px solid transparent;
+      color: var(--fg);
+      opacity: 0.85;
+      position: relative;
     }
 
-    nav a:hover {
-      border-bottom-color: #000;
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     footer {
-      margin-top: 120px;
-      font-size: 0.9rem;
-      color: #777;
+      margin-top: 140px;
+      font-size: 0.85rem;
+      color: #7b808a;
+    }
+
+    /* subtle futuristic divider */
+    .divider {
+      margin-top: 80px;
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        var(--accent),
+        transparent
+      );
+      opacity: 0.6;
     }
   </style>
 </head>
 
 <body>
   <main>
-    <h1>Naladimarth</h1>
+    <h1>
+      Naladimarth<br />
+      <span class="accent">crafted with intent</span>
+    </h1>
 
     <p>
-      Independent apps & utilities.<br />
-      Built with focus on simplicity, performance, and long-term value.
+      Independent apps & utilities focused on simplicity,
+      performance, and long-term value.
     </p>
 
     <nav>
       <a href="/privacy-policy.html">Privacy</a>
       <a href="/terms.html">Terms</a>
     </nav>
+
+    <div class="divider"></div>
 
     <footer>
       © 2026 Naladimarth
