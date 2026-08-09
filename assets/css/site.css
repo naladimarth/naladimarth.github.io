@@ -1255,3 +1255,244 @@ button, a { -webkit-tap-highlight-color: transparent; }
   text-shadow: 0 0 24px rgba(232, 91, 197, .16);
   animation: heroUp .95s .46s var(--ease) forwards !important;
 }
+
+
+/* ---- Mobile-only refinement: preserve tablet/desktop design ---- */
+@media (max-width: 600px) {
+  .site-header {
+    padding-inline: 10px;
+  }
+
+  .header-shell {
+    width: 100%;
+    padding-inline: 8px;
+  }
+
+  .site-nav {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .site-nav a {
+    flex: 0 1 auto;
+    padding: 9px 7px;
+    font-size: clamp(.66rem, 3.05vw, .76rem);
+  }
+
+  .hero {
+    min-height: min(760px, 100svh);
+    padding: 118px 16px 64px;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-eyebrow {
+    font-size: .64rem;
+    letter-spacing: .13em;
+  }
+
+  .hero-title {
+    width: 100%;
+    font-size: clamp(2.55rem, 12.2vw, 3.45rem);
+    line-height: .9;
+    letter-spacing: -.065em;
+    white-space: nowrap;
+  }
+
+  .hero-title span {
+    max-width: 100%;
+  }
+
+  .hero-tagline {
+    margin-top: 24px;
+    font-size: clamp(2rem, 9.1vw, 2.8rem);
+    line-height: 1;
+  }
+
+  .hero-copy {
+    max-width: 330px;
+    margin-top: 20px;
+    font-size: .98rem;
+    line-height: 1.55;
+  }
+
+  .scroll-cue {
+    margin-top: 48px;
+  }
+
+  .apps-section {
+    padding-top: 84px;
+  }
+
+  .section-heading {
+    margin-bottom: 38px;
+  }
+
+  .section-heading h2,
+  .finance-copy h2,
+  .about-copy h2 {
+    font-size: clamp(2.45rem, 11.5vw, 3.7rem);
+    line-height: 1;
+  }
+
+  .section-heading > p:last-child,
+  .finance-copy > p,
+  .about-copy > p:last-child {
+    margin-top: 22px;
+    font-size: .98rem;
+    line-height: 1.65;
+  }
+
+  .product,
+  .product-calc {
+    padding: 30px 18px 28px;
+    gap: 12px;
+  }
+
+  .app-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 19px;
+  }
+
+  .product-kicker {
+    margin-top: 20px;
+  }
+
+  .product h3 {
+    font-size: clamp(2.35rem, 10.9vw, 3.25rem);
+    line-height: .98;
+  }
+
+  .product-description {
+    margin-top: 20px;
+    font-size: .95rem;
+    line-height: 1.62;
+  }
+
+  .feature-chips {
+    margin-top: 22px;
+  }
+
+  .product-actions {
+    margin-top: 28px;
+    position: relative;
+    z-index: 12;
+  }
+
+  .legal-links {
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+
+  .phones-stage {
+    min-height: 340px;
+    margin: 24px -10px 0;
+  }
+
+  .phone {
+    width: clamp(132px, 38.5vw, 166px);
+    border-radius: 27px;
+    padding: 5px;
+  }
+
+  .phone-screen {
+    border-radius: 22px;
+  }
+
+  .phone-left {
+    left: -1%;
+    --base-transform: translate3d(0, 8%, 0) rotateY(12deg) rotateZ(-4deg) scale(.78);
+  }
+
+  .phone-right {
+    right: -1%;
+    --base-transform: translate3d(0, 9%, 4px) rotateY(-12deg) rotateZ(4deg) scale(.78);
+  }
+
+  .phone-main {
+    --base-transform: translate3d(0, -1%, 24px) scale(.88);
+  }
+
+  .calc-stage .phone-left {
+    left: -2%;
+    --base-transform: translate3d(0, 9%, 0) rotateY(12deg) rotateZ(-4deg) scale(.76);
+  }
+
+  .calc-stage .phone-right {
+    right: -2%;
+    --base-transform: translate3d(0, 10%, 4px) rotateY(-12deg) rotateZ(4deg) scale(.76);
+  }
+
+  .calc-stage .phone-main {
+    --base-transform: translate3d(0, -1%, 24px) scale(.88);
+  }
+
+  .finance-section {
+    padding: 88px 0;
+  }
+
+  .finance-shell {
+    gap: 36px;
+  }
+
+  .finance-visual {
+    min-height: 350px;
+  }
+
+  .about-section {
+    padding: 88px 0;
+  }
+
+  .about-grid {
+    gap: 34px;
+  }
+
+  .intent-mark {
+    width: min(310px, 82vw);
+  }
+
+  .contact-card {
+    padding: 30px 22px;
+  }
+
+  .contact-card h2 {
+    font-size: clamp(2.35rem, 10.7vw, 3rem);
+  }
+
+  .contact-email {
+    padding: 15px 16px;
+    font-size: .94rem;
+  }
+
+  .site-footer {
+    padding-bottom: max(42px, env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 390px) {
+  .site-nav a {
+    padding-inline: 5px;
+    font-size: .66rem;
+  }
+
+  .hero-title {
+    font-size: 11.6vw;
+  }
+
+  .hero-tagline {
+    font-size: 8.8vw;
+  }
+
+  .phones-stage {
+    min-height: 320px;
+  }
+
+  .phone {
+    width: 37vw;
+  }
+}
