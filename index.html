@@ -1,192 +1,316 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Naladimarth</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#05060b" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Naladimarth — Independent apps & utilities." />
+  <title>Naladimarth — Crafted with intent</title>
+  <meta name="description" content="Naladimarth builds focused Android apps and digital tools with deliberate design, strong utility, and polished experiences." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://naladimarth.com/" />
 
-  <style>
-    :root {
-      --bg: #0b0d10;
-      --fg: #f1f2f6;
-      --muted: #9aa0aa;
-      --accent: #8b8bff;
-      --glow: rgba(139,139,255,0.45);
-    }
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Naladimarth — Crafted with intent" />
+  <meta property="og:description" content="Focused digital tools. Thoughtfully built." />
+  <meta property="og:url" content="https://naladimarth.com/" />
+  <meta property="og:site_name" content="Naladimarth" />
 
-    * {
-      box-sizing: border-box;
-    }
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Naladimarth — Crafted with intent" />
+  <meta name="twitter:description" content="Focused digital tools. Thoughtfully built." />
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background:
-        radial-gradient(
-          1000px 600px at 40% -20%,
-          rgba(139,139,255,0.18),
-          transparent 60%
-        ),
-        var(--bg);
-      color: var(--fg);
-      overflow-x: hidden;
-    }
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2305060b'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' font-size='38' font-family='Arial,sans-serif' font-weight='800' fill='white'%3EN%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
 
-    main {
-      max-width: 980px;
-      margin: auto;
-      padding: 140px 24px 120px;
-      position: relative;
-    }
-
-    /* BRAND */
-    h1 {
-      font-size: clamp(3.2rem, 7vw, 4.6rem);
-      font-weight: 650;
-      letter-spacing: -0.025em;
-      margin: 0;
-      text-shadow:
-        0 0 18px var(--glow),
-        0 0 48px rgba(139,139,255,0.25);
-      animation: glowPulse 6s ease-in-out infinite;
-    }
-
-    h2 {
-      margin-top: 14px;
-      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      color: var(--accent);
-      opacity: 0.9;
-    }
-
-    p {
-      margin-top: 28px;
-      font-size: 1.15rem;
-      line-height: 1.7;
-      color: var(--muted);
-      max-width: 560px;
-    }
-
-    nav {
-      margin-top: 56px;
-      display: flex;
-      gap: 32px;
-    }
-
-    nav a {
-      text-decoration: none;
-      font-weight: 500;
-      color: var(--fg);
-      opacity: 0.85;
-      position: relative;
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.3s ease;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    footer {
-      margin-top: 160px;
-      font-size: 0.85rem;
-      color: #7b808a;
-    }
-
-    /* subtle divider */
-    .divider {
-      margin-top: 90px;
-      width: 140px;
-      height: 1px;
-      background: linear-gradient(
-        to right,
-        transparent,
-        var(--accent),
-        transparent
-      );
-      opacity: 0.6;
-    }
-
-    /* ambient glow animation */
-    @keyframes glowPulse {
-      0% {
-        text-shadow:
-          0 0 18px var(--glow),
-          0 0 48px rgba(139,139,255,0.25);
-      }
-      50% {
-        text-shadow:
-          0 0 26px rgba(139,139,255,0.7),
-          0 0 70px rgba(139,139,255,0.4);
-      }
-      100% {
-        text-shadow:
-          0 0 18px var(--glow),
-          0 0 48px rgba(139,139,255,0.25);
-      }
-    }
-
-    /* beaver placeholder layer */
-    .beaver {
-      position: absolute;
-      right: -120px;
-      top: 80px;
-      width: 420px;
-      height: 420px;
-      background: radial-gradient(
-        circle at center,
-        rgba(139,139,255,0.12),
-        transparent 70%
-      );
-      opacity: 0.35;
-      filter: blur(2px);
-      pointer-events: none;
-      animation: float 18s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(24px); }
-      100% { transform: translateY(0); }
-    }
-  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Naladimarth",
+    "url": "https://naladimarth.com/",
+    "email": "support@naladimarth.com"
+  }
+  </script>
 </head>
-
 <body>
-  <main>
-  <img class="beaver" src="/beaver.svg" alt="" />
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="page-noise" aria-hidden="true"></div>
 
+  <header class="site-header" data-header>
+    <div class="header-shell">
+      <a class="brand-mini" href="#home" aria-label="Naladimarth home">NALADIMARTH</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#home" class="is-active">Home</a>
+        <a href="#apps">Apps</a>
+        <a href="#finance">Finance</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <h1>Naladimarth</h1>
-    <h2>crafted with intent</h2>
+  <main id="main">
+    <section id="home" class="hero section-anchor" aria-labelledby="hero-title">
+      <div class="hero-orb orb-one" aria-hidden="true"></div>
+      <div class="hero-orb orb-two" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
 
-    <p>
-      Independent apps & utilities focused on simplicity,
-      performance, and long-term value.
-    </p>
+      <div class="hero-content">
+        <p class="eyebrow hero-eyebrow">Digital products by Naladimarth</p>
+        <h1 id="hero-title" class="hero-title" aria-label="Naladimarth">
+          <span>NALADIMARTH</span>
+        </h1>
+        <p class="hero-tagline">Crafted with intent</p>
+        <p class="hero-copy">Focused digital tools. Thoughtfully built.</p>
 
-    <nav>
-      <a href="/privacy-policy.html">Privacy</a>
-      <a href="/terms.html">Terms</a>
-    </nav>
+        <a class="scroll-cue" href="#apps" aria-label="Scroll to apps">
+          <span>Explore</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </a>
+      </div>
 
-    <div class="divider"></div>
+      <div class="hero-ribbon ribbon-one" aria-hidden="true"></div>
+      <div class="hero-ribbon ribbon-two" aria-hidden="true"></div>
+    </section>
 
-    <footer>
-      © 2026 Naladimarth
-    </footer>
+    <section id="apps" class="apps-section section-anchor">
+      <div class="section-shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> Our apps</p>
+          <h2>Useful tools.<br /><span>Distinct experiences.</span></h2>
+          <p>Two focused Android apps, each designed around a clear purpose and a visual identity of its own.</p>
+        </div>
+
+        <article class="product product-rgb reveal" aria-labelledby="rgb-title">
+          <div class="product-copy">
+            <div class="product-index">01</div>
+            <img class="app-icon" src="/assets/images/rgb-icon.webp" width="120" height="120" alt="RGB Screen & Pixel Check app icon" />
+            <p class="product-kicker">Screen utility</p>
+            <h3 id="rgb-title">RGB Screen &amp;<br />Pixel Check</h3>
+            <p class="product-description">Turn your display into a controlled color surface, fine-tune hue and brightness, and inspect the screen for stuck or dead pixels.</p>
+
+            <div class="feature-chips" aria-label="Key features">
+              <span>Hue control</span>
+              <span>Full screen</span>
+              <span>Pixel check</span>
+            </div>
+
+            <div class="product-actions">
+              <a class="play-button" href="https://play.google.com/store/apps/details?id=com.naladimarth.pixelcheck&amp;hl=en" target="_blank" rel="noopener noreferrer" aria-label="Open RGB Screen & Pixel Check on Google Play">
+                <span class="play-mark" aria-hidden="true"></span>
+                <span><small>Get it on</small>Google Play</span>
+              </a>
+              <div class="legal-links">
+                <a href="/privacy-policy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="phones-stage rgb-stage" aria-label="RGB Screen & Pixel Check previews">
+            <div class="stage-glow glow-cyan" aria-hidden="true"></div>
+            <div class="stage-glow glow-pink" aria-hidden="true"></div>
+
+            <div class="phone phone-left" data-parallax="-0.055">
+              <div class="phone-hardware"><span class="speaker"></span><span class="camera"></span></div>
+              <div class="phone-screen">
+                <img src="/assets/images/rgb-strobe-screen.webp" alt="RGB Screen & Pixel Check strobe controls" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <div class="phone phone-main" data-parallax="0.035">
+              <div class="phone-hardware"><span class="speaker"></span><span class="camera"></span></div>
+              <div class="phone-screen">
+                <img src="/assets/images/rgb-hue-screen.webp" alt="RGB Screen & Pixel Check hue wheel interface" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <div class="phone phone-right" data-parallax="-0.025">
+              <div class="phone-hardware"><span class="speaker"></span><span class="camera"></span></div>
+              <div class="phone-screen">
+                <img src="/assets/images/rgb-pixels-screen.webp" alt="RGB Screen & Pixel Check dead pixel testing screen" loading="lazy" decoding="async" />
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product product-calc reveal" aria-labelledby="calc-title">
+          <div class="phones-stage calc-stage" aria-label="Themed Calculator previews">
+            <div class="stage-glow glow-violet" aria-hidden="true"></div>
+            <div class="stage-glow glow-blue" aria-hidden="true"></div>
+
+            <div class="phone phone-left" data-parallax="0.045">
+              <div class="phone-hardware"><span class="speaker"></span><span class="camera"></span></div>
+              <div class="phone-screen">
+                <img src="/assets/images/calc-terminal-screen.webp" alt="Themed Calculator Terminal theme" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <div class="phone phone-main" data-parallax="-0.04">
+              <div class="phone-hardware"><span class="speaker"></span><span class="camera"></span></div>
+              <div class="phone-screen">
+                <img src="/assets/images/calc-themes-screen.webp" alt="Themed Calculator theme selection screen" loading="lazy" decoding="async" />
+              </div>
+            </div>
+
+            <div class="phone phone-right" data-parallax="0.025">
+              <div class="phone-hardware"><span class="speaker"></span><span class="camera"></span></div>
+              <div class="phone-screen">
+                <img src="/assets/images/calc-milk-screen.webp" alt="Themed Calculator Color Milk theme" loading="lazy" decoding="async" />
+              </div>
+            </div>
+          </div>
+
+          <div class="product-copy">
+            <div class="product-index">02</div>
+            <img class="app-icon" src="/assets/images/calculator-icon.webp" width="120" height="120" alt="Themed Calculator app icon" />
+            <p class="product-kicker">Everyday calculator</p>
+            <h3 id="calc-title">Themed<br />Calculator</h3>
+            <p class="product-description">A capable everyday calculator with history and a collection of dramatically different themes—from minimal dark layouts to colorful, playful designs.</p>
+
+            <div class="feature-chips" aria-label="Key features">
+              <span>16 themes</span>
+              <span>History</span>
+              <span>Fast input</span>
+            </div>
+
+            <div class="product-actions">
+              <a class="play-button" href="https://play.google.com/store/apps/details?id=com.naladimarth.nala_calculator&amp;hl=en" target="_blank" rel="noopener noreferrer" aria-label="Open Themed Calculator on Google Play">
+                <span class="play-mark" aria-hidden="true"></span>
+                <span><small>Get it on</small>Google Play</span>
+              </a>
+              <div class="legal-links">
+                <a href="/nala-calculator/privacy-policy.html">Privacy Policy</a>
+                <a href="/nala-calculator/terms.html">Terms</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="finance" class="finance-section section-anchor">
+      <div class="finance-grid-bg" aria-hidden="true"></div>
+      <div class="section-shell finance-shell">
+        <div class="finance-copy reveal">
+          <div class="coming-badge"><span></span> Coming soon</div>
+          <p class="eyebrow">Next from Naladimarth</p>
+          <h2>Finance<br /><span>Calculators</span></h2>
+          <p>A growing suite of advanced calculation tools designed for projections, comparisons, scenario exploration, and long-range financial planning.</p>
+          <div class="finance-pills" aria-label="Planned product direction">
+            <span>Projection models</span>
+            <span>Scenario analysis</span>
+            <span>Planning tools</span>
+            <span>Clearer decisions</span>
+          </div>
+        </div>
+
+        <div class="finance-visual reveal" aria-hidden="true">
+          <div class="chart-orb"></div>
+          <svg class="finance-chart" viewBox="0 0 760 500" role="presentation">
+            <defs>
+              <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#59f5ff" />
+                <stop offset="0.45" stop-color="#7b61ff" />
+                <stop offset="1" stop-color="#ff4fa7" />
+              </linearGradient>
+              <linearGradient id="barGradient" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0" stop-color="#2bf1ff" stop-opacity="0.12" />
+                <stop offset="1" stop-color="#2bf1ff" stop-opacity="0.88" />
+              </linearGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="5" result="blur" />
+                <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+              </filter>
+            </defs>
+            <g class="chart-grid-lines">
+              <path d="M20 90H740M20 170H740M20 250H740M20 330H740M20 410H740" />
+              <path d="M80 40V450M200 40V450M320 40V450M440 40V450M560 40V450M680 40V450" />
+            </g>
+            <g class="chart-bars">
+              <rect x="62" y="360" width="32" height="70" rx="7" />
+              <rect x="122" y="335" width="32" height="95" rx="7" />
+              <rect x="182" y="315" width="32" height="115" rx="7" />
+              <rect x="242" y="276" width="32" height="154" rx="7" />
+              <rect x="302" y="290" width="32" height="140" rx="7" />
+              <rect x="362" y="235" width="32" height="195" rx="7" />
+              <rect x="422" y="204" width="32" height="226" rx="7" />
+              <rect x="482" y="220" width="32" height="210" rx="7" />
+              <rect x="542" y="160" width="32" height="270" rx="7" />
+              <rect x="602" y="126" width="32" height="304" rx="7" />
+              <rect x="662" y="84" width="32" height="346" rx="7" />
+            </g>
+            <path class="chart-line chart-line-shadow" d="M40 360 C105 340 120 300 175 310 S260 365 320 274 S395 245 442 226 S520 246 566 168 S642 165 714 88" />
+            <path class="chart-line" d="M40 360 C105 340 120 300 175 310 S260 365 320 274 S395 245 442 226 S520 246 566 168 S642 165 714 88" />
+            <g class="chart-points">
+              <circle cx="175" cy="310" r="6" />
+              <circle cx="320" cy="274" r="6" />
+              <circle cx="442" cy="226" r="6" />
+              <circle cx="566" cy="168" r="6" />
+              <circle cx="714" cy="88" r="7" />
+            </g>
+          </svg>
+          <div class="floating-metric metric-one"><span>+</span><strong>Projection</strong></div>
+          <div class="floating-metric metric-two"><span>↗</span><strong>Scenario</strong></div>
+          <div class="floating-metric metric-three"><span>∞</span><strong>Long horizon</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section section-anchor">
+      <div class="section-shell about-grid">
+        <div class="about-copy reveal">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> About Naladimarth</p>
+          <h2>Built with focus.<br /><span>Designed to last.</span></h2>
+          <p>Naladimarth creates focused digital tools that pair practical utility with deliberate design. Every product is shaped around clarity, performance, and an experience that feels considered from first tap to final result.</p>
+        </div>
+
+        <div class="intent-mark reveal" aria-hidden="true">
+          <div class="intent-ring ring-one"></div>
+          <div class="intent-ring ring-two"></div>
+          <div class="intent-ring ring-three"></div>
+          <div class="intent-core">N</div>
+          <span class="spark spark-one"></span>
+          <span class="spark spark-two"></span>
+          <span class="spark spark-three"></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section section-anchor">
+      <div class="section-shell">
+        <div class="contact-card reveal">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2>Let’s connect.</h2>
+            <p>Questions, feedback, or product support? Reach Naladimarth directly.</p>
+          </div>
+          <a class="contact-email" href="mailto:support@naladimarth.com">support@naladimarth.com <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="section-shell footer-row">
+      <div class="footer-brand">
+        <strong>NALADIMARTH</strong>
+        <span>Crafted with intent</span>
+      </div>
+      <p>© 2026 Naladimarth. All rights reserved.</p>
+      <div class="domain-links">
+        <a href="https://naladimarth.com/">naladimarth.com</a>
+        <span>•</span>
+        <a href="https://naladimarth.in/">naladimarth.in</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/site.js" defer></script>
 </body>
 </html>
