@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#05060b" />
+
+  <title>Naladimarth Website Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for the Naladimarth website, including information about website analytics, cookies, visitor data, and privacy choices." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://naladimarth.com/nala-website-privacy-policy.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Naladimarth Website Privacy Policy" />
+  <meta property="og:description" content="How Naladimarth handles information when you visit naladimarth.com." />
+  <meta property="og:url" content="https://naladimarth.com/nala-website-privacy-policy.html" />
+  <meta property="og:site_name" content="Naladimarth" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Naladimarth Website Privacy Policy" />
+  <meta name="twitter:description" content="How Naladimarth handles information when you visit naladimarth.com." />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2305060b'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='middle' text-anchor='middle' font-size='38' font-family='Arial,sans-serif' font-weight='800' fill='white'%3EN%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
+
+  <style>
+    .policy-main {
+      position: relative;
+      z-index: 2;
+      min-height: 100svh;
+      padding: 150px 0 96px;
+    }
+
+    .policy-main::before,
+    .policy-main::after {
+      content: "";
+      position: fixed;
+      z-index: -1;
+      pointer-events: none;
+      border-radius: 50%;
+      filter: blur(30px);
+      opacity: .8;
+    }
+
+    .policy-main::before {
+      width: min(52vw, 760px);
+      height: min(52vw, 760px);
+      top: -18vw;
+      left: -16vw;
+      background: radial-gradient(circle, rgba(67, 233, 255, .13), rgba(92, 124, 255, .08) 42%, transparent 72%);
+    }
+
+    .policy-main::after {
+      width: min(58vw, 820px);
+      height: min(58vw, 820px);
+      right: -22vw;
+      top: 22vh;
+      background: radial-gradient(circle, rgba(255, 79, 167, .11), rgba(138, 92, 255, .08) 44%, transparent 72%);
+    }
+
+    .policy-shell {
+      width: min(calc(100% - 40px), 980px);
+      margin: 0 auto;
+    }
+
+    .policy-hero {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 28px;
+      padding: clamp(34px, 6vw, 66px);
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(67, 233, 255, .11), transparent 28rem),
+        radial-gradient(circle at 92% 82%, rgba(255, 79, 167, .10), transparent 26rem),
+        linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+      box-shadow: 0 30px 95px rgba(0,0,0,.30), inset 0 1px 0 rgba(255,255,255,.055);
+    }
+
+    .policy-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -12% -45% 30%;
+      height: 58%;
+      border-radius: 50%;
+      border: 1px solid rgba(112, 179, 255, .12);
+      box-shadow: 0 0 80px rgba(103, 103, 255, .09);
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+
+    .policy-hero .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 18px;
+    }
+
+    .policy-hero h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(3rem, 7.3vw, 6.7rem);
+      line-height: .94;
+      letter-spacing: -.065em;
+      font-weight: 950;
+      background: linear-gradient(90deg, #92fbff 0%, #75c4ff 24%, #9c82ff 51%, #ff82c4 78%, #ffd278 100%);
+      background-size: 220% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .policy-hero-copy {
+      max-width: 720px;
+      margin: 24px 0 0;
+      color: #cad6ff;
+      font-size: clamp(1rem, 1.9vw, 1.18rem);
+      line-height: 1.75;
+    }
+
+    .policy-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .policy-meta span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 8px 13px;
+      border: 1px solid rgba(133, 179, 255, .16);
+      border-radius: 999px;
+      background: rgba(115, 153, 255, .065);
+      color: #bcd6ff;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .025em;
+    }
+
+    .policy-note {
+      margin: 0 0 28px;
+      padding: 20px 22px;
+      border: 1px solid rgba(67, 233, 255, .15);
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(67, 233, 255, .055), rgba(138, 92, 255, .045));
+      color: #c9d6f7;
+      line-height: 1.7;
+    }
+
+    .policy-note strong { color: #8ef4ff; }
+
+    .policy-card {
+      margin-top: 18px;
+      padding: clamp(28px, 5vw, 48px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(14, 17, 31, .78), rgba(8, 10, 19, .86));
+      box-shadow: 0 24px 76px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.04);
+    }
+
+    .policy-card h2 {
+      margin: 0 0 14px;
+      color: #f8faff;
+      font-size: clamp(1.45rem, 3vw, 2.1rem);
+      line-height: 1.15;
+      letter-spacing: -.025em;
+    }
+
+    .policy-card h3 {
+      margin: 26px 0 10px;
+      color: #dce7ff;
+      font-size: 1.04rem;
+      line-height: 1.35;
+    }
+
+    .policy-card p,
+    .policy-card li {
+      color: #b8c3df;
+      font-size: .98rem;
+      line-height: 1.78;
+    }
+
+    .policy-card p { margin: 10px 0; }
+
+    .policy-card ul {
+      margin: 14px 0 6px;
+      padding-left: 1.25rem;
+    }
+
+    .policy-card li + li { margin-top: 8px; }
+
+    .policy-card a,
+    .policy-contact a,
+    .policy-back {
+      color: #80eaff;
+      text-decoration-color: rgba(128, 234, 255, .35);
+      text-underline-offset: 3px;
+    }
+
+    .policy-card a:hover,
+    .policy-contact a:hover,
+    .policy-back:hover { color: #ffd0ed; }
+
+    .policy-scope-links {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .policy-scope-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 58px;
+      padding: 13px 15px;
+      border: 1px solid rgba(133, 179, 255, .14);
+      border-radius: 15px;
+      background: rgba(115, 153, 255, .045);
+      color: #c8d7ff;
+      font-size: .82rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .22s var(--ease), border-color .22s ease, background .22s ease;
+    }
+
+    .policy-scope-links a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(112, 231, 255, .28);
+      background: rgba(78, 210, 255, .07);
+      color: #fff;
+    }
+
+    .policy-contact {
+      margin-top: 20px;
+      padding: 24px;
+      border: 1px solid rgba(255, 130, 196, .16);
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(255, 79, 167, .055), rgba(92, 124, 255, .05));
+    }
+
+    .policy-contact p:last-child { margin-bottom: 0; }
+
+    .policy-back-row {
+      display: flex;
+      justify-content: center;
+      padding-top: 34px;
+    }
+
+    .policy-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 999px;
+      background: rgba(255,255,255,.035);
+      font-size: .84rem;
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    @media (max-width: 760px) {
+      .policy-main { padding-top: 122px; padding-bottom: 72px; }
+      .policy-shell { width: min(calc(100% - 28px), 980px); }
+      .policy-hero { border-radius: 26px; }
+      .policy-card { border-radius: 22px; }
+      .policy-scope-links { grid-template-columns: 1fr; }
+      .policy-scope-links a { min-height: 52px; }
+    }
+
+    @media (max-width: 520px) {
+      .policy-main { padding-top: 110px; }
+      .policy-hero { padding: 28px 22px 30px; }
+      .policy-card { padding: 26px 21px; }
+      .policy-note { padding: 18px; }
+      .policy-hero h1 { font-size: clamp(2.65rem, 13vw, 4rem); }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <div class="header-shell">
+      <a class="brand-mini" href="/" aria-label="Naladimarth home">NALADIMARTH</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="/#home">Home</a>
+        <a href="/#apps">Apps</a>
+        <a href="/#finance">Finance</a>
+        <a href="/#about">About</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="policy-main">
+    <div class="policy-shell">
+      <section class="policy-hero" aria-labelledby="policy-title">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> Naladimarth website</p>
+        <h1 id="policy-title">Privacy<br />Policy</h1>
+        <p class="policy-hero-copy">
+          This policy explains how information is handled when you visit <strong>naladimarth.com</strong>, including the use of website analytics, cookies or similar technologies, and third-party services.
+        </p>
+        <div class="policy-meta" aria-label="Policy details">
+          <span>Effective: August 10, 2026</span>
+          <span>Last updated: August 10, 2026</span>
+        </div>
+      </section>
+
+      <p class="policy-note">
+        <strong>Website policy only.</strong> This page applies to the Naladimarth website. Naladimarth apps have separate privacy policies that describe how each app handles information.
+      </p>
+
+      <section class="policy-card">
+        <h2>1. Scope</h2>
+        <p>
+          This Privacy Policy applies to the public website available at <strong>https://naladimarth.com</strong> and pages that expressly link to this policy. It does not replace the separate privacy policies for Naladimarth mobile applications or other products.
+        </p>
+        <div class="policy-scope-links" aria-label="App privacy policies">
+          <a href="/privacy-policy.html">RGB Screen &amp; Pixel Check <span aria-hidden="true">↗</span></a>
+          <a href="/nala-calculator/privacy-policy.html">Themed Calculator <span aria-hidden="true">↗</span></a>
+          <a href="/nala-finance-calculator/privacy-policy.html">Nala Finance Calculator <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="policy-card">
+        <h2>2. Information handled when you visit the website</h2>
+        <p>
+          You can browse the Naladimarth website without creating an account or providing your name, phone number, or other account information. The website currently does not provide user login or account features.
+        </p>
+        <p>
+          Technical information may nevertheless be processed when the site is delivered to your browser. Website hosting, security, and infrastructure providers may process standard request information needed to provide and protect the service, such as IP address, browser or device information, requested page, and request date or time.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>3. Google Analytics</h2>
+        <p>
+          Naladimarth may use <strong>Google Analytics 4 (GA4)</strong>, a web analytics service provided by Google, to understand how visitors discover and use the website and to improve website performance, content, and usability.
+        </p>
+        <p>Depending on your interaction with the site and the Analytics settings in use, Analytics information may include:</p>
+        <ul>
+          <li>pages viewed and navigation activity;</li>
+          <li>session and engagement information;</li>
+          <li>approximate geographic information;</li>
+          <li>browser, device type, operating system, and language information;</li>
+          <li>referral source or traffic channel;</li>
+          <li>interactions such as scrolling, outbound link clicks, file downloads, site-search interactions, video engagement, or form interactions where those features are present and measurement is enabled; and</li>
+          <li>cookies or similar pseudonymous identifiers where permitted and enabled.</li>
+        </ul>
+        <p>
+          Naladimarth does not intentionally send names, email addresses, phone numbers, or other information that directly identifies a visitor to Google Analytics.
+        </p>
+        <p>
+          Google states that Google Analytics uses identifiers such as cookies to measure interactions and uses IP addresses for service operation, security, and approximate location. Google also states that Google Analytics 4 does not log or store individual IP addresses.
+        </p>
+        <p>
+          Learn more in Google’s <a href="https://support.google.com/analytics/answer/6004245" target="_blank" rel="noopener noreferrer">Analytics data safeguards information</a> and <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">How Google uses information from sites or apps that use its services</a>.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>4. Cookies, similar technologies, and consent</h2>
+        <p>
+          Google Analytics may use cookies or similar technologies to distinguish browsers or devices and measure website activity. Analytics cookies are not required for the basic operation of the Naladimarth website.
+        </p>
+        <p>
+          Where applicable law requires prior consent for non-essential analytics storage or processing, Naladimarth will seek the required consent before enabling that use. Where a consent control is provided, your choice will be used to determine whether Analytics storage or related measurement may operate for your visit.
+        </p>
+        <p>
+          You can also manage cookies through your browser settings. Google provides a <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Browser Add-on</a> for supported browsers.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>5. Why we use analytics information</h2>
+        <p>When Analytics is enabled, Naladimarth uses the resulting information for purposes such as:</p>
+        <ul>
+          <li>understanding how visitors reach the website;</li>
+          <li>measuring page usage and engagement;</li>
+          <li>identifying technical or usability problems;</li>
+          <li>understanding which content and product links are useful;</li>
+          <li>improving site structure, performance, and design; and</li>
+          <li>producing aggregated statistics about website usage.</li>
+        </ul>
+      </section>
+
+      <section class="policy-card">
+        <h2>6. Legal basis and privacy choices</h2>
+        <p>
+          Privacy laws differ by jurisdiction. Where consent is legally required for non-essential Analytics cookies or related processing, the relevant processing will be based on your consent. In locations where another lawful basis is available, processing may be based on Naladimarth’s legitimate interest in understanding website performance and improving its products and website, to the extent permitted by applicable law.
+        </p>
+        <p>
+          If you previously gave consent through a consent control made available on the website, you may withdraw or change that choice through the available privacy or cookie controls where provided. You can also use browser controls or Google’s opt-out mechanism described above.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>7. Service providers and data processing</h2>
+        <p>
+          Naladimarth relies on third-party service providers to operate parts of the website. These providers may process information only as necessary for the services they provide, subject to their applicable terms and privacy practices.
+        </p>
+        <h3>Google Analytics</h3>
+        <p>
+          Google processes Analytics data to provide the Google Analytics measurement service. Google’s handling of information is governed by its applicable terms, data-processing terms, and privacy policies.
+        </p>
+        <h3>Website hosting and infrastructure</h3>
+        <p>
+          Hosting, domain, security, and network providers may process technical information necessary to deliver the website, maintain availability, prevent abuse, and protect their services.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>8. Data retention</h2>
+        <p>
+          Analytics information is retained according to the Google Analytics property settings selected by Naladimarth and Google’s applicable retention rules. Naladimarth may also retain aggregated or non-identifying reports for business analysis where permitted.
+        </p>
+        <p>
+          We aim to retain website information only for as long as reasonably necessary for the purposes described in this policy, legal obligations, security, and dispute resolution.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>9. International processing</h2>
+        <p>
+          Google and other service providers may process information in countries other than the country where you live. Where required, appropriate contractual or legal safeguards may apply to such transfers under the service provider’s terms and applicable law.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>10. Your privacy rights</h2>
+        <p>
+          Depending on where you live, you may have rights concerning personal data, which can include rights to access, correct, delete, restrict or object to certain processing, withdraw consent, or lodge a complaint with an applicable data-protection authority.
+        </p>
+        <p>
+          Because website analytics data is generally pseudonymous or aggregated and the website does not require visitor accounts, Naladimarth may not always be able to identify or isolate information relating to a particular visitor from an Analytics request alone. We will respond to valid privacy requests as required by applicable law and based on the information reasonably available to us.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>11. Children’s privacy</h2>
+        <p>
+          The Naladimarth website is a general-audience product and company website and is not specifically directed to children. Naladimarth does not knowingly ask children to provide names, contact details, or account information through this website.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>12. Security</h2>
+        <p>
+          Naladimarth uses reasonable technical and organizational measures appropriate to the nature of the website and relies on reputable service providers for hosting and analytics. No internet transmission or storage system can be guaranteed to be completely secure.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>13. External links</h2>
+        <p>
+          The website contains links to third-party services, including app stores and other external websites. When you follow an external link, that third party’s privacy policy and terms apply to its collection and use of information. Naladimarth does not control third-party privacy practices.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>14. Changes to this policy</h2>
+        <p>
+          Naladimarth may update this Privacy Policy when the website, analytics configuration, service providers, or legal requirements change. The updated version will be posted on this page and the “Last updated” date will be revised.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <h2>15. Contact</h2>
+        <p>If you have a question or privacy request relating to this website, contact Naladimarth:</p>
+        <div class="policy-contact">
+          <p><strong>Naladimarth</strong></p>
+          <p>Email: <a href="mailto:support@naladimarth.com">support@naladimarth.com</a></p>
+          <p>Website: <a href="https://naladimarth.com/">https://naladimarth.com/</a></p>
+        </div>
+      </section>
+
+      <div class="policy-back-row">
+        <a class="policy-back" href="/"><span aria-hidden="true">←</span> Back to Naladimarth</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="section-shell footer-row">
+      <div class="footer-brand">
+        <strong>NALADIMARTH</strong>
+        <span>Crafted with intent</span>
+      </div>
+      <p>© 2026 Naladimarth. All rights reserved.</p>
+      <div class="domain-links">
+        <a href="https://naladimarth.com/">naladimarth.com</a>
+        <span>•</span>
+        <a href="https://naladimarth.in/">naladimarth.in</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>
