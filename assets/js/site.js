@@ -90,6 +90,211 @@
     if (!document.hidden) updateScrollState();
   });
 
+
+  /* NALADIMARTH_CONSENT_MANAGER */
+  const analyticsMeasurementId = 'G-81Q427QWZV';
+  const analyticsConsentKey = 'naladimarth_analytics_consent_v1';
+  let analyticsLoaded = false;
+  let consentBanner = null;
+
+  function readAnalyticsConsent() {
+    try {
+      const value = window.localStorage.getItem(analyticsConsentKey);
+      return value === 'granted' || value === 'denied' ? value : null;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function saveAnalyticsConsent(value) {
+    try {
+      window.localStorage.setItem(analyticsConsentKey, value);
+    } catch (_) {
+      // If browser storage is unavailable, apply the choice for this page only.
+    }
+  }
+
+  function ensureGtagQueue() {
+    window.dataLayer = window.dataLayer || [];
+
+    if (typeof window.gtag !== 'function') {
+      window.gtag = function gtag() {
+        window.dataLayer.push(arguments);
+      };
+    }
+  }
+
+  function deniedConsentState() {
+    return {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied'
+    };
+  }
+
+  function grantedAnalyticsState() {
+    return {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted'
+    };
+  }
+
+  function clearAnalyticsCookies() {
+    const analyticsCookiePrefixes = ['_ga', '_gid', '_gat'];
+    const cookies = document.cookie ? document.cookie.split(';') : [];
+    const hostname = window.location.hostname;
+
+    cookies.forEach((cookie) => {
+      const name = cookie.split('=')[0].trim();
+
+      if (!analyticsCookiePrefixes.some((prefix) => name.startsWith(prefix))) {
+        return;
+      }
+
+      document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`;
+
+      if (hostname.includes('.')) {
+        document.cookie = `${name}=; Max-Age=0; path=/; domain=${hostname}; SameSite=Lax`;
+        document.cookie = `${name}=; Max-Age=0; path=/; domain=.${hostname}; SameSite=Lax`;
+      }
+    });
+  }
+
+  function disableAnalytics() {
+    window[`ga-disable-${analyticsMeasurementId}`] = true;
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', deniedConsentState());
+    }
+
+    clearAnalyticsCookies();
+  }
+
+  function loadAnalytics() {
+    window[`ga-disable-${analyticsMeasurementId}`] = false;
+
+    ensureGtagQueue();
+
+    /*
+      Basic Consent Mode:
+      This code runs only after a user has granted analytics consent.
+      Ad-related consent remains denied.
+    */
+    window.gtag('consent', 'default', deniedConsentState());
+    window.gtag('consent', 'update', grantedAnalyticsState());
+
+    window.gtag('set', {
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false
+    });
+
+    if (!analyticsLoaded) {
+      analyticsLoaded = true;
+
+      const script = document.createElement('script');
+      script.async = true;
+      script.src =
+        `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(analyticsMeasurementId)}`;
+      script.dataset.naladimarthAnalytics = 'true';
+      document.head.appendChild(script);
+
+      window.gtag('js', new Date());
+
+      window.gtag('config', analyticsMeasurementId, {
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false
+      });
+    } else {
+      window.gtag('config', analyticsMeasurementId, {
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false
+      });
+    }
+  }
+
+  function hideConsentBanner() {
+    if (consentBanner) {
+      consentBanner.hidden = true;
+    }
+  }
+
+  function showConsentBanner() {
+    if (consentBanner) {
+      consentBanner.hidden = false;
+    }
+  }
+
+  function createConsentBanner() {
+    const banner = document.createElement('section');
+
+    banner.className = 'consent-banner';
+    banner.hidden = true;
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-modal', 'false');
+    banner.setAttribute('aria-labelledby', 'analytics-consent-title');
+    banner.setAttribute('aria-describedby', 'analytics-consent-description');
+
+    banner.innerHTML = `
+      <div class="consent-dialog">
+        <div class="consent-copy">
+          <p class="consent-kicker">Privacy choice</p>
+          <h2 class="consent-title" id="analytics-consent-title">Analytics preferences</h2>
+          <p class="consent-text" id="analytics-consent-description">
+            We use Google Analytics only if you allow it. It helps us understand visits
+            and improve Naladimarth. Rejecting analytics does not affect website functionality.
+          </p>
+          <a class="consent-policy-link" href="/nala-website-privacy-policy.html">
+            Read website privacy policy
+          </a>
+        </div>
+
+        <div class="consent-actions">
+          <button type="button" class="consent-button consent-reject" data-consent-reject>
+            Reject analytics
+          </button>
+          <button type="button" class="consent-button consent-accept" data-consent-accept>
+            Accept analytics
+          </button>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(banner);
+
+    banner.querySelector('[data-consent-reject]').addEventListener('click', () => {
+      saveAnalyticsConsent('denied');
+      disableAnalytics();
+      hideConsentBanner();
+    });
+
+    banner.querySelector('[data-consent-accept]').addEventListener('click', () => {
+      saveAnalyticsConsent('granted');
+      loadAnalytics();
+      hideConsentBanner();
+    });
+
+    return banner;
+  }
+
+  consentBanner = createConsentBanner();
+
+  document.querySelectorAll('[data-privacy-settings]').forEach((control) => {
+    control.addEventListener('click', showConsentBanner);
+  });
+
+  const storedAnalyticsConsent = readAnalyticsConsent();
+
+  if (storedAnalyticsConsent === 'granted') {
+    loadAnalytics();
+  } else if (storedAnalyticsConsent === 'denied') {
+    disableAnalytics();
+  } else {
+    showConsentBanner();
+  }
+
   body.classList.add('js-ready');
   updateScrollState();
 })();
