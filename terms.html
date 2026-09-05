@@ -1,232 +1,1828 @@
+<!-- verified -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+
   <title>Terms & Conditions – RGB Screen & Pixel Check</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
   <meta
     name="description"
     content="Terms & Conditions for RGB Screen & Pixel Check by Naladimarth."
   />
 
+  <meta name="theme-color" content="#f3eff9" />
+
   <style>
-    :root { color-scheme: light dark; }
+    :root {
+      --page-bg: #f3eff9;
+      --page-bg-soft: #faf8ff;
+
+      --text: #18171d;
+      --text-soft: #64616b;
+      --text-muted: #85818d;
+
+      --panel: rgba(255, 255, 255, 0.82);
+      --panel-strong: rgba(255, 255, 255, 0.94);
+
+      --border: rgba(28, 22, 50, 0.09);
+      --shadow: 0 18px 55px rgba(45, 31, 77, 0.09);
+
+      --red: #ff1744;
+      --orange: #ff8a00;
+      --yellow: #ffd600;
+      --green: #00d76f;
+      --cyan: #00c8ff;
+      --blue: #2979ff;
+      --violet: #7c4dff;
+      --pink: #ff2fa8;
+
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+
+      --content-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6;
       margin: 0;
-      padding: 24px;
-      max-width: 900px;
-      margin-inline: auto;
+      min-height: 100vh;
+
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      color: var(--text);
+
+      background:
+        radial-gradient(
+          circle at 15% 10%,
+          rgba(255, 40, 90, 0.08),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 88% 15%,
+          rgba(42, 121, 255, 0.09),
+          transparent 33%
+        ),
+        radial-gradient(
+          circle at 50% 90%,
+          rgba(0, 215, 111, 0.06),
+          transparent 32%
+        ),
+        linear-gradient(
+          180deg,
+          var(--page-bg-soft) 0%,
+          var(--page-bg) 100%
+        );
+
+      line-height: 1.65;
+      overflow-x: hidden;
     }
 
-    header { margin-bottom: 24px; }
+    a {
+      color: #3157e5;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      word-break: break-word;
+    }
+
+    a:hover {
+      color: #6a3df0;
+    }
+
+    .aurora {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .aurora span {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      filter: blur(85px);
+      opacity: 0.16;
+
+      animation:
+        floatGlow 16s ease-in-out infinite alternate;
+    }
+
+    .aurora .a1 {
+      top: -140px;
+      left: -110px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--red),
+          var(--orange),
+          var(--yellow)
+        );
+    }
+
+    .aurora .a2 {
+      top: 16%;
+      right: -180px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue),
+          var(--violet),
+          var(--pink)
+        );
+
+      animation-delay: -5s;
+    }
+
+    .aurora .a3 {
+      bottom: -180px;
+      left: 26%;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--green),
+          var(--cyan),
+          var(--blue)
+        );
+
+      animation-delay: -9s;
+    }
+
+    @keyframes floatGlow {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+
+      to {
+        transform: translate3d(45px, 30px, 0) scale(1.12);
+      }
+    }
+
+    .page {
+      width: min(calc(100% - 32px), var(--content-width));
+
+      margin-inline: auto;
+
+      padding:
+        32px
+        0
+        64px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+
+      padding:
+        clamp(28px, 5vw, 62px);
+
+      border-radius: var(--radius-xl);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.92),
+          rgba(255, 255, 255, 0.70)
+        );
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.85);
+
+      box-shadow: var(--shadow);
+
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+      inset: -2px;
+
+      z-index: -2;
+
+      background:
+        conic-gradient(
+          from 0deg,
+          var(--red),
+          var(--orange),
+          var(--yellow),
+          var(--green),
+          var(--cyan),
+          var(--blue),
+          var(--violet),
+          var(--pink),
+          var(--red)
+        );
+
+      animation:
+        rotateRgb 16s linear infinite;
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+      inset: 2px;
+
+      z-index: -1;
+
+      border-radius:
+        calc(var(--radius-xl) - 2px);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.96),
+          rgba(248, 244, 255, 0.88)
+        );
+    }
+
+    @keyframes rotateRgb {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+
+      margin-bottom: 24px;
+    }
+
+    .brand-mark {
+      position: relative;
+
+      width: 54px;
+      height: 54px;
+
+      flex: 0 0 auto;
+
+      border-radius: 50%;
+
+      background:
+        conic-gradient(
+          var(--red),
+          var(--yellow),
+          var(--green),
+          var(--cyan),
+          var(--blue),
+          var(--pink),
+          var(--red)
+        );
+
+      box-shadow:
+        0 8px 22px
+        rgba(51, 44, 88, 0.15);
+    }
+
+    .brand-mark::after {
+      content: "";
+
+      position: absolute;
+      inset: 10px;
+
+      border-radius: 50%;
+
+      background: #f8f5ff;
+    }
+
+    .brand-name {
+      font-size: 0.85rem;
+      font-weight: 800;
+
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+
+      color: var(--text-soft);
+    }
+
+    .app-name {
+      margin-top: 2px;
+
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
 
     h1 {
-      font-size: 1.8rem;
-      margin-bottom: 6px;
-    }
-
-    .meta {
-      opacity: 0.8;
       margin: 0;
-      font-size: 0.95rem;
+
+      max-width: 920px;
+
+      font-size:
+        clamp(2.7rem, 7.3vw, 5.3rem);
+
+      line-height: 0.98;
+
+      letter-spacing: -0.055em;
+
+      background:
+        linear-gradient(
+          90deg,
+          #f52828 0%,
+          #ff8a00 16%,
+          #e5c500 30%,
+          #00b96b 44%,
+          #00aedd 58%,
+          #2864e9 72%,
+          #7048eb 86%,
+          #f02e9c 100%
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
     }
 
-    h2 {
-      font-size: 1.2rem;
+    .hero-copy {
+      margin:
+        26px
+        0
+        0;
+
+      max-width: 820px;
+
+      color: var(--text-soft);
+
+      font-size:
+        clamp(1rem, 2vw, 1.2rem);
+
+      line-height: 1.75;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 10px;
+
       margin-top: 28px;
     }
 
-    p {
+    .badge {
+      padding:
+        9px
+        14px;
+
+      border-radius: 999px;
+
+      background:
+        rgba(255, 255, 255, 0.82);
+
+      border:
+        1px solid
+        var(--border);
+
+      font-size: 0.86rem;
+      font-weight: 700;
+
+      color: #504b5a;
+
+      box-shadow:
+        0 8px 20px
+        rgba(50, 40, 80, 0.05);
+    }
+
+    .intro {
+      margin-top: 22px;
+
+      padding:
+        24px
+        26px;
+
+      border-radius: var(--radius-lg);
+
+      background: var(--panel);
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.72);
+
+      box-shadow: var(--shadow);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .intro p {
+      margin: 0;
+
+      color: var(--text-soft);
+    }
+
+    .intro strong {
+      color: var(--text);
+    }
+
+    .contents {
+      margin-top: 22px;
+
+      padding: 26px;
+
+      border-radius: var(--radius-lg);
+
+      background: var(--panel);
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.72);
+
+      box-shadow: var(--shadow);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .contents h2 {
+      margin:
+        0
+        0
+        18px;
+
+      font-size: 1.25rem;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--blue),
+          var(--violet),
+          var(--pink)
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+    }
+
+    .toc-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 10px;
+    }
+
+    .toc-grid a {
+      display: flex;
+      align-items: center;
+
+      min-height: 52px;
+
+      padding:
+        12px
+        14px;
+
+      border-radius: var(--radius-sm);
+
+      border:
+        1px solid
+        var(--border);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.88),
+          rgba(248, 245, 255, 0.76)
+        );
+
+      color: #3c3944;
+
+      font-size: 0.87rem;
+      font-weight: 700;
+
+      text-decoration: none;
+
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        border-color 180ms ease;
+    }
+
+    .toc-grid a:hover {
+      transform: translateY(-2px);
+
+      border-color:
+        rgba(80, 72, 180, 0.2);
+
+      box-shadow:
+        0 10px 24px
+        rgba(63, 52, 113, 0.09);
+    }
+
+    main {
+      display: grid;
+
+      gap: 16px;
+
+      margin-top: 22px;
+    }
+
+    .terms-section {
+      position: relative;
+      overflow: hidden;
+
+      padding:
+        clamp(22px, 4vw, 34px);
+
+      border-radius: var(--radius-lg);
+
+      background: var(--panel);
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.78);
+
+      box-shadow:
+        0 12px 32px
+        rgba(44, 34, 73, 0.065);
+
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+
+      animation:
+        sectionIn 520ms ease both;
+    }
+
+    .terms-section::before {
+      content: "";
+
+      position: absolute;
+
+      inset:
+        0
+        auto
+        0
+        0;
+
+      width: 5px;
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--red),
+          var(--yellow),
+          var(--green),
+          var(--cyan),
+          var(--blue),
+          var(--pink)
+        );
+    }
+
+    .terms-section:nth-child(2n)::before {
+      background:
+        linear-gradient(
+          180deg,
+          var(--blue),
+          var(--violet),
+          var(--pink),
+          var(--red)
+        );
+    }
+
+    .terms-section:nth-child(3n)::before {
+      background:
+        linear-gradient(
+          180deg,
+          var(--green),
+          var(--cyan),
+          var(--blue)
+        );
+    }
+
+    @keyframes sectionIn {
+      from {
+        opacity: 0;
+
+        transform:
+          translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translateY(0);
+      }
+    }
+
+    .terms-section h2 {
+      margin:
+        0
+        0
+        14px;
+
+      font-size:
+        clamp(1.18rem, 2vw, 1.45rem);
+
+      line-height: 1.3;
+    }
+
+    .terms-section p {
       margin: 10px 0;
+
+      color: #504c57;
+    }
+
+    .terms-section strong {
+      color: var(--text);
     }
 
     ul {
-      margin: 8px 0 8px 20px;
+      margin:
+        12px
+        0
+        12px
+        22px;
+
+      padding: 0;
+
+      color: #504c57;
+    }
+
+    li {
+      margin: 7px 0;
+
+      padding-left: 3px;
+    }
+
+    li::marker {
+      color: #6b5cff;
+    }
+
+    .highlight {
+      margin:
+        18px
+        0;
+
+      padding:
+        16px
+        18px;
+
+      border-radius: var(--radius-md);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 60, 83, 0.07),
+          rgba(0, 200, 255, 0.07),
+          rgba(124, 77, 255, 0.08)
+        );
+
+      border:
+        1px solid
+        rgba(90, 77, 190, 0.09);
+    }
+
+    .highlight p {
+      margin: 0;
+    }
+
+    .warning {
+      margin:
+        18px
+        0;
+
+      padding:
+        16px
+        18px;
+
+      border-radius: var(--radius-md);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 130, 0, 0.10),
+          rgba(255, 23, 68, 0.07)
+        );
+
+      border:
+        1px solid
+        rgba(255, 100, 0, 0.15);
+    }
+
+    .warning p {
+      margin: 0;
+    }
+
+    .legal-block {
+      padding:
+        17px
+        18px;
+
+      margin-top: 15px;
+
+      border-radius: var(--radius-md);
+
+      background:
+        rgba(243, 239, 249, 0.70);
+
+      border:
+        1px solid
+        var(--border);
+
+      color: #3d3945;
+
+      font-size: 0.94rem;
+    }
+
+    .legal-block p:first-child {
+      margin-top: 0;
+    }
+
+    .legal-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .policy-link {
+      display: block;
+
+      margin-top: 16px;
+
+      padding:
+        14px
+        16px;
+
+      border-radius: var(--radius-sm);
+
+      background:
+        rgba(255, 255, 255, 0.72);
+
+      border:
+        1px solid
+        var(--border);
+
+      text-decoration: none;
+
+      transition:
+        transform 160ms ease,
+        box-shadow 160ms ease;
+    }
+
+    .policy-link:hover {
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 10px 24px
+        rgba(57, 49, 98, 0.08);
+    }
+
+    .policy-link strong {
+      display: block;
+
+      margin-bottom: 3px;
+
+      color: var(--text);
+    }
+
+    .policy-link span {
+      font-size: 0.85rem;
+
+      color: var(--text-soft);
     }
 
     footer {
-      margin-top: 36px;
-      opacity: 0.85;
-      font-size: 0.9rem;
+      margin-top: 24px;
+
+      padding: 28px;
+
+      text-align: center;
+
+      border-radius: var(--radius-lg);
+
+      color: var(--text-soft);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.74),
+          rgba(245, 241, 255, 0.86)
+        );
+
+      border:
+        1px solid
+        var(--border);
+    }
+
+    .footer-rgb {
+      width: 120px;
+      height: 4px;
+
+      margin:
+        0
+        auto
+        18px;
+
+      border-radius: 999px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--red),
+          var(--orange),
+          var(--yellow),
+          var(--green),
+          var(--cyan),
+          var(--blue),
+          var(--violet),
+          var(--pink)
+        );
+    }
+
+    @media (max-width: 860px) {
+      .toc-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width:
+          min(
+            calc(100% - 20px),
+            var(--content-width)
+          );
+
+        padding-top: 10px;
+      }
+
+      .hero {
+        padding:
+          26px
+          20px
+          30px;
+
+        border-radius: 26px;
+      }
+
+      .brand-mark {
+        width: 46px;
+        height: 46px;
+      }
+
+      .app-name {
+        font-size: 1rem;
+      }
+
+      .toc-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contents,
+      .intro,
+      .terms-section {
+        border-radius: 22px;
+      }
+
+      .contents {
+        padding: 20px;
+      }
+
+      .terms-section {
+        padding:
+          23px
+          20px
+          23px
+          24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Terms & Conditions for RGB Screen & Pixel Check</h1>
-  <p class="meta"><strong>Last updated:</strong> March 2026</p>
-</header>
+<div class="aurora" aria-hidden="true">
+  <span class="a1"></span>
+  <span class="a2"></span>
+  <span class="a3"></span>
+</div>
 
-<p>
-  <strong>RGB Screen & Pixel Check</strong> (also known as “RGB Screen Light · Pixel Check”, “the app”)
-  is developed and published by <strong>Naladimarth</strong> (“Naladimarth”, “we”, “us”, “our”).
-</p>
+<div class="page">
 
-<p>
-  By downloading, installing, accessing, or using the app, you agree to these Terms & Conditions (“Terms”).
-  If you do not agree, do not use the app.
-</p>
+  <header class="hero">
 
-<h2>1. License; Restrictions</h2>
-<p>
-  Subject to these Terms, Naladimarth grants you a limited, personal, non-exclusive, non-transferable,
-  revocable license to install and use the app solely for lawful, personal, non-commercial use on devices you own or control.
-</p>
-<p><strong>You agree you will not</strong> (and will not allow others to):</p>
-<ul>
-  <li>copy, reproduce, modify, translate, adapt, or create derivative works of the app;</li>
-  <li>reverse engineer, decompile, disassemble, attempt to derive source code, bypass protections, or tamper with the app;</li>
-  <li>rent, lease, sell, resell, sublicense, distribute, publish, or commercially exploit the app;</li>
-  <li>use the app in any way that violates laws, regulations, or third-party rights;</li>
-  <li>use the app to test screens/devices you do not own or do not have permission to access;</li>
-  <li>remove, obscure, or alter proprietary notices (copyright/trademark notices) in the app.</li>
-</ul>
+    <div class="brand-row">
 
-<h2>2. Eligibility</h2>
-<p>
-  You must be at least 13 years old (or the minimum age required by law in your country) to use the app.
-  If you are under the age of majority, you represent that you have permission from a parent or legal guardian.
-</p>
+      <div
+        class="brand-mark"
+        aria-hidden="true"
+      ></div>
 
-<h2>3. Intended Use; Responsible Use</h2>
-<p>
-  The app is a utility tool intended for screen testing, display inspection, and visual checking purposes only.
-  You agree to use the app responsibly and in accordance with these Terms.
-</p>
-<p>
-  You are solely responsible for how you use the app, including the duration, brightness level, and any effects on your device or health.
-</p>
+      <div>
 
-<h2>4. Hardware & Screen Damage Disclaimer (Assumption of Risk)</h2>
-<p>
-  The app may display static colors, high brightness levels, or rapidly changing visuals for testing purposes.
-  Prolonged use of high-brightness static images may cause image retention or screen burn-in, particularly on OLED/AMOLED displays.
-</p>
-<p>
-  <strong>You assume all risks</strong> related to using the app, including risks of screen degradation, image retention, burn-in,
-  battery drain, device heating, or other hardware effects.
-</p>
-<ul>
-  <li>The app is intended for short-duration testing only.</li>
-  <li>For safer use, avoid leaving static high-brightness screens on for extended periods, especially on OLED/AMOLED displays.</li>
-  <li>Naladimarth is not responsible for any screen degradation, burn-in, image retention, or permanent hardware damage resulting from use of the app.</li>
-</ul>
+        <div class="brand-name">
+          Naladimarth
+        </div>
 
-<h2>5. Health & Photosensitivity Warning (Assumption of Risk)</h2>
-<p>
-  The app may include visuals that flash or change rapidly (strobe-like effects). Such visuals may trigger discomfort, dizziness,
-  headaches, nausea, or seizures in individuals with photosensitive epilepsy or similar conditions.
-</p>
-<p>
-  <strong>You assume all risks</strong> related to photosensitivity and similar health effects. Discontinue use immediately if you
-  experience discomfort, dizziness, altered vision, nausea, or muscle twitches.
-</p>
-<ul>
-  <li>You use the app at your own discretion.</li>
-  <li>Naladimarth is not responsible for any health-related effects arising from use of the app.</li>
-</ul>
+        <div class="app-name">
+          RGB Screen Light · Pixel Check
+        </div>
 
-<h2>6. No Professional Advice; No Guarantees</h2>
-<p>
-  The app may help you identify issues such as dead/stuck/abnormal pixels, but results are provided for informational purposes only.
-  The app does not provide professional, certified, manufacturer-approved, or warranty-grade diagnostics.
-</p>
-<p>
-  We do not guarantee that the app will detect all issues, fix dead pixels, improve display quality, or produce accurate results in all cases.
-</p>
+      </div>
 
-<h2>7. No High-Risk Use</h2>
-<p>
-  The app is not designed, intended, or certified for use in any high-risk, safety-critical, or regulated environments, including
-  medical, emergency response, navigation, aviation, or life-support systems. You agree not to use the app for such purposes.
-</p>
+    </div>
 
-<h2>8. Third-Party Services</h2>
-<p>
-  The app may use third-party services (for example, Google Firebase Crashlytics) to process crash and diagnostic data for stability
-  and performance improvements. Third-party services are provided under their own terms and privacy policies.
-</p>
-<p>
-  Naladimarth is not responsible for third-party services, their availability, or their actions. Your use of third-party services
-  is at your own risk.
-</p>
+    <h1>Terms &amp; Conditions</h1>
 
-<h2>9. Disclaimer of Warranties</h2>
-<p>
-  THE APP IS PROVIDED ON AN “AS IS” AND “AS AVAILABLE” BASIS. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, NALADIMARTH
-  DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
-  NON-INFRINGEMENT, AND ANY WARRANTIES ARISING OUT OF COURSE OF DEALING OR USAGE OF TRADE.
-</p>
-<p>
-  WE DO NOT WARRANT THAT THE APP WILL BE UNINTERRUPTED, SECURE, ERROR-FREE, OR THAT DEFECTS WILL BE CORRECTED.
-</p>
+    <p class="hero-copy">
+      The rules, responsibilities, safety information, disclaimers, and
+      conditions that apply when using RGB Screen Light · Pixel Check.
+    </p>
 
-<h2>10. Limitation of Liability</h2>
-<p>
-  TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, NALADIMARTH SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, CONSEQUENTIAL,
-  SPECIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS, REVENUE, DATA, GOODWILL, OR BUSINESS INTERRUPTION, ARISING OUT OF
-  OR RELATED TO YOUR USE OF (OR INABILITY TO USE) THE APP, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-</p>
-<p>
-  TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, NALADIMARTH’S TOTAL LIABILITY FOR ANY CLAIM ARISING OUT OF OR RELATED TO THE APP
-  OR THESE TERMS SHALL NOT EXCEED THE AMOUNT YOU PAID FOR THE APP IN THE 12 MONTHS BEFORE THE EVENT GIVING RISE TO THE CLAIM
-  (WHICH, FOR A FREE APP, IS ZERO) OR INR 100, WHICHEVER IS GREATER.
-</p>
-<p>
-  SOME JURISDICTIONS DO NOT ALLOW CERTAIN LIMITATIONS OF LIABILITY. IN SUCH CASES, LIABILITY SHALL BE LIMITED TO THE MAXIMUM EXTENT
-  PERMITTED BY LAW.
-</p>
+    <div class="badges">
 
-<h2>11. Indemnification</h2>
-<p>
-  You agree to indemnify, defend, and hold harmless Naladimarth from and against any claims, damages, losses, liabilities, costs,
-  and expenses (including reasonable legal fees) arising out of or related to: (a) your use or misuse of the app; (b) your violation
-  of these Terms; or (c) your violation of any law or third-party rights.
-</p>
+      <span class="badge">
+        Effective: 5 September 2026
+      </span>
 
-<h2>12. Suspension; Termination</h2>
-<p>
-  We may suspend or terminate your access to the app at any time if you violate these Terms or if we discontinue the app.
-  These Terms will survive termination to the extent necessary (including Sections on disclaimers and limitation of liability).
-</p>
+      <span class="badge">
+        General-audience utility
+      </span>
 
-<h2>13. Changes to the App or Terms</h2>
-<p>
-  We may modify, update, suspend, or discontinue the app at any time. We may also update these Terms from time to time and will update
-  the “Last updated” date on this page. Continued use of the app after changes means you accept the updated Terms.
-</p>
+      <span class="badge">
+        Personal-use license
+      </span>
 
-<h2>14. Severability</h2>
-<p>
-  If any provision of these Terms is held unenforceable, the remaining provisions will remain in full force and effect.
-</p>
+      <span class="badge">
+        Screen &amp; strobe safety notices
+      </span>
 
-<h2>15. Governing Law & Jurisdiction</h2>
-<p>
-  These Terms shall be governed by and construed in accordance with the laws of <strong>India</strong>.
-</p>
-<p>
-  You agree that the courts located in India shall have exclusive jurisdiction over any disputes arising out of or relating to these Terms or use of the app.
-</p>
+    </div>
 
-<h2>16. Contact</h2>
-<p>
-  If you have questions about these Terms, contact:
-</p>
-<p>
-  <strong>Email:</strong>
-  <a href="mailto:support@naladimarth.com">support@naladimarth.com</a>
-</p>
+  </header>
 
-<footer>
-  <p>© 2026 Naladimarth. All rights reserved.</p>
-</footer>
+  <section class="intro">
+
+    <p>
+      <strong>RGB Screen &amp; Pixel Check</strong>, also known as
+      <strong>RGB Screen Light · Pixel Check</strong> (“the app”), is developed
+      and published by <strong>Naladimarth</strong>
+      (“Naladimarth”, “we”, “us”, or “our”).
+      By downloading, installing, accessing, or using the app, you agree to
+      these Terms &amp; Conditions (“Terms”). If you do not agree with these
+      Terms, do not use the app.
+    </p>
+
+  </section>
+
+  <nav
+    class="contents"
+    aria-label="Terms and Conditions contents"
+  >
+
+    <h2>Terms contents</h2>
+
+    <div class="toc-grid">
+
+      <a href="#license">
+        1. License &amp; restrictions
+      </a>
+
+      <a href="#eligibility">
+        2. Eligibility
+      </a>
+
+      <a href="#intended-use">
+        3. Intended &amp; responsible use
+      </a>
+
+      <a href="#screen-risk">
+        4. Screen &amp; hardware risks
+      </a>
+
+      <a href="#health">
+        5. Health &amp; photosensitivity
+      </a>
+
+      <a href="#diagnostics">
+        6. Screen-test limitations
+      </a>
+
+      <a href="#high-risk">
+        7. No high-risk use
+      </a>
+
+      <a href="#advertising">
+        8. Advertising
+      </a>
+
+      <a href="#privacy">
+        9. Privacy &amp; third parties
+      </a>
+
+      <a href="#feedback">
+        10. Feedback &amp; external actions
+      </a>
+
+      <a href="#availability">
+        11. App availability &amp; updates
+      </a>
+
+      <a href="#warranties">
+        12. Disclaimer of warranties
+      </a>
+
+      <a href="#liability">
+        13. Limitation of liability
+      </a>
+
+      <a href="#indemnification">
+        14. Indemnification
+      </a>
+
+      <a href="#termination">
+        15. Suspension &amp; termination
+      </a>
+
+      <a href="#changes">
+        16. Changes to these Terms
+      </a>
+
+      <a href="#law">
+        17. Governing law &amp; severability
+      </a>
+
+      <a href="#contact">
+        18. Contact
+      </a>
+
+    </div>
+
+  </nav>
+
+  <main>
+
+    <section
+      class="terms-section"
+      id="license"
+    >
+
+      <h2>1. License and Restrictions</h2>
+
+      <p>
+        Subject to these Terms, Naladimarth grants you a limited, personal,
+        non-exclusive, non-transferable, revocable license to install and use
+        the app for lawful personal use on devices that you own or control.
+      </p>
+
+      <p>
+        Unless applicable law expressly permits otherwise, you agree that you
+        will not, and will not assist another person to:
+      </p>
+
+      <ul>
+
+        <li>
+          copy, reproduce, modify, translate, adapt, or create derivative works
+          of the app;
+        </li>
+
+        <li>
+          reverse engineer, decompile, disassemble, attempt to derive source
+          code from, tamper with, or bypass technical protections in the app;
+        </li>
+
+        <li>
+          rent, lease, sell, resell, sublicense, distribute, republish, or
+          commercially exploit the app without permission from Naladimarth;
+        </li>
+
+        <li>
+          use the app in a way that violates applicable law, regulation, or
+          third-party rights;
+        </li>
+
+        <li>
+          use the app to interfere with, damage, or improperly access a device
+          that you do not own or have permission to use;
+        </li>
+
+        <li>
+          remove, obscure, or alter copyright, trademark, attribution, or other
+          proprietary notices contained in the app.
+        </li>
+
+      </ul>
+
+    </section>
+
+    <section
+      class="terms-section"
+      id="eligibility"
+    >
+
+      <h2>2. Eligibility</h2>
+
+      <p>
+        You must meet the minimum age required by applicable law to use the app
+        independently.
+      </p>
+
+      <p>
+        If applicable law requires permission from a parent or legal guardian,
+        you may use the app only with that permission.
+      </p>
+
+    </section>
+
+    <section
+      class="terms-section"
+      id="intended-use"
+    >
+
+      <h2>3. Intended Use and Responsible Use</h2>
+
+      <p>
+        The app is a general-purpose utility intended for functions such as:
+      </p>
+
+      <ul>
+        <li>screen lighting;</li>
+        <li>colour display;</li>
+        <li>visual screen inspection;</li>
+        <li>Pixel Check testing;</li>
+        <li>fullscreen colour display;</li>
+        <li>brightness-related visual use;</li>
+        <li>other related display-testing functions.</li>
+      </ul>
+
+      <p>
+        You are responsible for using the app safely and appropriately,
+        including selecting suitable brightness levels and limiting the
+        duration of continuous display use.
+      </p>
+
+      <p>
+        You are also responsible for ensuring that use of the app is
+        appropriate for your device, surroundings, and personal circumstances.
+      </p>
+
+    </section>
+
+    <section
+      class="terms-section"
+      id="screen-risk"
+    >
+
+      <h2>4. Screen and Hardware Risk</h2>
+
+      <div class="warning">
+
+        <p>
+          <strong>
+            Continuous high-brightness or static screen use may affect some
+            displays.
+          </strong>
+        </p>
+
+      </div>
+
+      <p>
+        The app may display bright colours, static colours, high-brightness
+        visuals, or other screen patterns for testing or lighting purposes.
+      </p>
+
+      <p>
+        Prolonged display of static content or prolonged use at high brightness
+        can contribute to temporary image retention, permanent burn-in, or
+        uneven display wear on some technologies, particularly OLED and
+        AMOLED screens.
+      </p>
+
+      <p>
+        Extended use may also increase:
+      </p>
+
+      <ul>
+        <li>battery consumption;</li>
+        <li>device temperature;</li>
+        <li>display power usage;</li>
+        <li>general device load.</li>
+      </ul>
+
+      <p>
+        You are responsible for monitoring your device and stopping use if the
+        device becomes excessively hot or if you notice unusual display
+        behaviour.
+      </p>
+
+      <p>
+        To the maximum extent permitted by applicable law, Naladimarth is not
+        responsible for screen burn-in, image retention, battery wear, heat,
+        display degradation, or other hardware effects resulting from the
+        manner or duration in which you use the app.
+      </p>
+
+    </section>
+
+    <section
+      class="terms-section"
+      id="health"
+    >
+
+      <h2>5. Health and Photosensitivity Warning</h2>
+
+      <div class="warning">
+
+        <p>
+          <strong>
+            The app includes a strobe function and may display rapidly changing
+            colours or flashing visuals.
+          </strong>
+        </p>
+
+      </div>
+
+      <p>
+        Flashing or rapidly changing light may trigger discomfort or adverse
+        reactions in some people, including people who are sensitive to
+        flashing lights or who have photosensitive epilepsy.
+      </p>
+
+      <p>
+        Possible reactions may include:
+      </p>
+
+      <ul>
+        <li>eye discomfort;</li>
+        <li>headache;</li>
+        <li>dizziness;</li>
+        <li>nausea;</li>
+        <li>disorientation;</li>
+        <li>altered vision;</li>
+        <li>muscle twitching;</li>
+        <li>seizures in susceptible individuals.</li>
+      </ul>
+
+      <p>
+        Do not intentionally direct flashing light at another person without
+        their knowledge or consent.
+      </p>
+
+      <p>
+        Stop using flashing or rapidly changing visual modes immediately if
+        you or another person experiences discomfort or unusual symptoms.
+      </p>
+
+      <p>
+        The app is not medical equipment and does not assess whether it is safe
+        for a particular person to view flashing light.
+      </p>
+
+    </section>
+
+    <section
+      class="terms-section"
+      id="diagnostics"
+    >
+
+      <h2>6. Screen-Test Limitations and No Professional Diagnostics</h2>
+
+      <p>
+        Pixel Check and related visual tools may help you visually inspect a
+        display for apparent abnormal pixels, colour differences, uniformity
+        issues, or similar visible characteristics.
+      </p>
+
+      <p>
+        Results are provided for informational and visual-inspection purposes
+        only.
+      </p>
+
+      <p>
+        The app does not provide:
+      </p>
+
+      <ul>
+        <li>certified display diagnostics;</li>
+        <li>manufacturer-approved testing;</li>
+        <li>warranty assessments;</li>
+        <li>professional repair diagnostics;</li>
+        <li>laboratory-grade measurements.</li>
+      </ul>
+
+      <p>
+        Naladimarth does not guarantee that the app will identify every display
+        issue, diagnose its cause, repair dead or stuck pixels, improve display
+        quality, or produce identical results on every device.
+      </p>
+
+    </section>
+
+    <section
+      class="terms-section"
+      id="high-risk"
+    >
+
+      <h2>7. No High-Risk or Safety-Critical Use</h2>
+
+      <p>
+        The app is not designed, tested, approved, or certified for
+        safety-critical, emergency, medical, industrial-control, aviation,
+        navigation, automotive-safety, life-support, or similar high-risk
+        purposes.
+      </p>
+
+      <p>
+        You agree not to rely on the app where failure, inaccurate display
+        output, interruption, or incorrect use could reasonably cause death,
+        injury, significant property damage, or other serious harm.
+      </p>
+
+    </section>
+
+    <section
+      class="terms-section"
+      id="advertising"
+    >
+
+      <h2>8. Advertising</h2>
+
+      <p>
+        Versions of the app in which advertising is enabled may use
+        <strong>Google AdMob</strong>.
+      </p>
+
+      <p>
+        The intended advertising implementation is one anchored adaptive banner
+        on the normal Home control screen.
+      </p>
+
+      <p>
+        The app is designed not to display that banner while you are using
+        clean functional modes such as:
+      </p>
+
+      <ul>
+        <li>fullscreen colour mode;</li>
+        <li>Pixel Check mode;</li>
+        <li>strobe mode;</li>
+        <li>locked clean-display mode.</li>
+      </ul>
+
+      <p>
+        Ad availability, content, personalisation, fill rate, and behaviour may
+        depend on Google, advertising partners, network availability, user
+        privacy choices, geographic region, and applicable law.
+      </p>
+
+      <p>
+        Naladimarth does not manually select every advertisement shown to a
+        particular user and does not guarantee the availability, suitability,
+        accuracy, or content of third-party advertisements.
+      </p>
+
+      <p>
+        You should interact with an advertisement only if you genuinely wish
+        to do so.
+      </p>
+
+    </section>
+
+    <section
+      class="terms-section"
+      id="privacy"
+    >
+
+      <h2>9. Privacy, Analytics, Consent, and Third-Party Services</h2>
+
+      <p>
+        The app may use third-party services including:
+      </p>
+
+      <ul>
+        <li>Firebase Crashlytics;</li>
+        <li>optional Google Analytics for Firebase;</li>
+        <li>Google AdMob;</li>
+        <li>Google User Messaging Platform (UMP).</li>
+      </ul>
+
+      <p>
+        These services are provided and operated by Google and are subject to
+        applicable Google terms, policies, technical behaviour, and privacy
+        practices.
+      </p>
+
+      <p>
+        Usage Analytics in the app is optional and is designed to remain off
+        unless the user enables the applicable setting.
+      </p>
+
+      <p>
+        Advertising-related privacy choices may be handled through Google UMP
+        where required.
+      </p>
+
+      <p>
+        Advertising consent and the app's optional Usage Analytics preference
+        are separate mechanisms.
+      </p>
+
+      <a
+        class="policy-link"
+        href="/privacy-policy.html"
+      >
+        <strong>Read the RGB Screen Light · Pixel Check Privacy Policy</strong>
+        <span>naladimarth.com/privacy-policy.html</span>
+      </a>
+
+    </section>
+
+    <section
+      class="terms-section"
+      id="feedback"
+    >
+
+      <h2>10. Feedback, Email, and External Actions</h2>
+
+      <p>
+        The app may provide actions such as:
+      </p>
+
+      <ul>
+        <li>Report a bug;</li>
+        <li>Request a feature;</li>
+        <li>open the Privacy Policy;</li>
+        <li>open the Terms &amp; Conditions;</li>
+        <li>open other relevant external webpages.</li>
+      </ul>
+
+      <p>
+        Report-a-bug and feature-request actions may open your device's email
+        application with a prepared draft.
+      </p>
+
+      <p>
+        You control whether the email is sent and may edit or delete its
+        contents before sending.
+      </p>
+
+      <p>
+        External websites, email applications, app stores, and other
+        third-party services are outside Naladimarth's direct control and may
+        have their own terms and privacy practices.
+      </p>
+
+      <p>
+        Unless required by applicable law, Naladimarth is not responsible for
+        the content, security, availability, accuracy, or operation of
+        third-party websites or services.
+      </p>
+
+    </section>
+
+    <section
+      class="terms-section"
+      id="availability"
+    >
+
+      <h2>11. App Availability, Compatibility, and Updates</h2>
+
+      <p>
+        Naladimarth may modify, maintain, update, add, remove, suspend, or
+        discontinue features of the app from time to time.
+      </p>
+
+      <p>
+        Features may vary depending on:
+      </p>
+
+      <ul>
+        <li>app version;</li>
+        <li>Android version;</li>
+        <li>device manufacturer;</li>
+        <li>screen characteristics;</li>
+        <li>hardware capabilities;</li>
+        <li>regional requirements;</li>
+        <li>third-party service availability.</li>
+      </ul>
+
+      <p>
+        We do not guarantee that the app will remain compatible with every
+        future Android version, device, third-party SDK, or service.
+      </p>
+
+      <p>
+        Updates may be required to continue using certain features.
+      </p>
+
+    </section>
+
+    <section
+      class="terms-section"
+      id="warranties"
+    >
+
+      <h2>12. Disclaimer of Warranties</h2>
+
+      <div class="legal-block">
+
+        <p>
+          TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE APP IS
+          PROVIDED ON AN “AS IS” AND “AS AVAILABLE” BASIS.
+        </p>
+
+        <p>
+          NALADIMARTH DISCLAIMS WARRANTIES, REPRESENTATIONS, AND CONDITIONS,
+          WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING WARRANTIES OF
+          MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE,
+          NON-INFRINGEMENT, AND WARRANTIES ARISING FROM COURSE OF DEALING OR
+          USAGE OF TRADE.
+        </p>
+
+        <p>
+          WE DO NOT WARRANT THAT THE APP WILL ALWAYS BE AVAILABLE,
+          UNINTERRUPTED, SECURE, ERROR-FREE, COMPATIBLE WITH EVERY DEVICE, OR
+          THAT EVERY DEFECT WILL BE CORRECTED.
+        </p>
+
+      </div>
+
+      <p>
+        Nothing in these Terms excludes a warranty or right that cannot lawfully
+        be excluded under applicable consumer-protection law.
+      </p>
+
+    </section>
+
+    <section
+      class="terms-section"
+      id="liability"
+    >
+
+      <h2>13. Limitation of Liability</h2>
+
+      <div class="legal-block">
+
+        <p>
+          TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, NALADIMARTH SHALL
+          NOT BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL,
+          EXEMPLARY, OR PUNITIVE DAMAGES, OR FOR LOSS OF PROFITS, REVENUE,
+          BUSINESS, DATA, GOODWILL, OR USE, ARISING OUT OF OR RELATING TO THE
+          APP OR THESE TERMS.
+        </p>
+
+        <p>
+          TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, NALADIMARTH'S
+          TOTAL AGGREGATE LIABILITY ARISING OUT OF OR RELATING TO THE APP OR
+          THESE TERMS SHALL NOT EXCEED THE GREATER OF:
+        </p>
+
+        <ul>
+          <li>
+            the amount you paid directly for the app during the 12 months
+            immediately preceding the event giving rise to the claim; or
+          </li>
+
+          <li>INR 100.</li>
+        </ul>
+
+      </div>
+
+      <p>
+        Some jurisdictions do not allow certain exclusions or limitations of
+        liability. Where such rules apply, these limitations apply only to the
+        maximum extent permitted by law.
+      </p>
+
+      <p>
+        Nothing in these Terms limits liability that cannot lawfully be limited
+        or excluded.
+      </p>
+
+    </section>
+
+    <section
+      class="terms-section"
+      id="indemnification"
+    >
+
+      <h2>14. Indemnification</h2>
+
+      <p>
+        To the extent permitted by applicable law, you agree to indemnify and
+        hold harmless Naladimarth from claims, losses, liabilities, damages,
+        costs, and reasonable expenses arising from:
+      </p>
+
+      <ul>
+
+        <li>
+          your unlawful use or misuse of the app;
+        </li>
+
+        <li>
+          your material violation of these Terms;
+        </li>
+
+        <li>
+          your violation of applicable law or third-party rights.
+        </li>
+
+      </ul>
+
+      <p>
+        This provision does not apply to the extent prohibited by applicable
+        consumer-protection or other mandatory law.
+      </p>
+
+    </section>
+
+    <section
+      class="terms-section"
+      id="termination"
+    >
+
+      <h2>15. Suspension and Termination</h2>
+
+      <p>
+        Your right to use the app may end if:
+      </p>
+
+      <ul>
+        <li>you materially violate these Terms;</li>
+        <li>you uninstall or stop using the app;</li>
+        <li>the app or relevant service is discontinued;</li>
+        <li>termination is required by law or platform policy.</li>
+      </ul>
+
+      <p>
+        Provisions that by their nature should continue after termination,
+        including intellectual-property restrictions, disclaimers, limitation
+        of liability, and governing-law provisions, will survive to the extent
+        legally applicable.
+      </p>
+
+    </section>
+
+    <section
+      class="terms-section"
+      id="changes"
+    >
+
+      <h2>16. Changes to the App or These Terms</h2>
+
+      <p>
+        Naladimarth may update the app or these Terms when reasonably necessary,
+        including because of:
+      </p>
+
+      <ul>
+        <li>new or changed features;</li>
+        <li>security or reliability improvements;</li>
+        <li>advertising changes;</li>
+        <li>privacy or consent requirements;</li>
+        <li>third-party SDK changes;</li>
+        <li>legal or regulatory requirements;</li>
+        <li>Google Play or platform-policy requirements.</li>
+      </ul>
+
+      <p>
+        The effective or last-updated date at the top of this page will be
+        changed when a material revision is published.
+      </p>
+
+      <p>
+        Continued use of the app after updated Terms become applicable may
+        constitute acceptance of the updated Terms where permitted by law.
+      </p>
+
+    </section>
+
+    <section
+      class="terms-section"
+      id="law"
+    >
+
+      <h2>17. Governing Law, Jurisdiction, and Severability</h2>
+
+      <p>
+        These Terms are governed by the laws of
+        <strong>India</strong>,
+        without prejudice to mandatory consumer protections that may apply in
+        your place of residence.
+      </p>
+
+      <p>
+        Subject to applicable mandatory law, disputes arising out of or
+        relating to these Terms or the app shall be subject to the jurisdiction
+        of competent courts in India.
+      </p>
+
+      <p>
+        If a court or competent authority finds any provision of these Terms
+        invalid, illegal, or unenforceable, that provision will be interpreted
+        or limited to the minimum extent necessary, and the remaining
+        provisions will continue in effect where legally possible.
+      </p>
+
+      <p>
+        Failure by Naladimarth to enforce a provision of these Terms does not
+        constitute a waiver of that provision or any other right.
+      </p>
+
+    </section>
+
+    <section
+      class="terms-section"
+      id="contact"
+    >
+
+      <h2>18. Contact</h2>
+
+      <p>
+        If you have questions about these Terms &amp; Conditions, contact:
+      </p>
+
+      <p>
+        <strong>Naladimarth</strong>
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+
+        <a href="mailto:support@naladimarth.com">
+          support@naladimarth.com
+        </a>
+      </p>
+
+      <a
+        class="policy-link"
+        href="/privacy-policy.html"
+      >
+        <strong>Privacy Policy</strong>
+        <span>naladimarth.com/privacy-policy.html</span>
+      </a>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <div
+      class="footer-rgb"
+      aria-hidden="true"
+    ></div>
+
+    <p>
+      <strong>RGB Screen Light · Pixel Check</strong>
+    </p>
+
+    <p>
+      © 2026 Naladimarth. All rights reserved.
+    </p>
+
+  </footer>
+
+</div>
 
 </body>
 </html>
