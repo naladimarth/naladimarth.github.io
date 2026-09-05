@@ -16,672 +16,1621 @@
     content="Privacy Policy for RGB Screen & Pixel Check by Naladimarth."
   />
 
+  <meta name="theme-color" content="#f3eff9" />
+
   <style>
     :root {
-      color-scheme: light dark;
+      --page-bg: #f3eff9;
+      --page-bg-soft: #faf8ff;
+
+      --text: #18171d;
+      --text-soft: #64616b;
+      --text-muted: #85818d;
+
+      --panel: rgba(255, 255, 255, 0.82);
+      --panel-strong: rgba(255, 255, 255, 0.94);
+
+      --border: rgba(28, 22, 50, 0.09);
+      --shadow: 0 18px 55px rgba(45, 31, 77, 0.09);
+
+      --red: #ff1744;
+      --orange: #ff8a00;
+      --yellow: #ffd600;
+      --green: #00d76f;
+      --cyan: #00c8ff;
+      --blue: #2979ff;
+      --violet: #7c4dff;
+      --pink: #ff2fa8;
+
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+
+      --content-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
+      margin: 0;
+      min-height: 100vh;
+
       font-family:
         system-ui,
         -apple-system,
+        BlinkMacSystemFont,
         "Segoe UI",
         Roboto,
         Helvetica,
         Arial,
         sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 24px;
-      max-width: 900px;
-      margin-inline: auto;
-    }
 
-    header {
-      margin-bottom: 24px;
-    }
+      color: var(--text);
 
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 6px;
-    }
+      background:
+        radial-gradient(
+          circle at 15% 10%,
+          rgba(255, 40, 90, 0.08),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 88% 15%,
+          rgba(42, 121, 255, 0.09),
+          transparent 33%
+        ),
+        radial-gradient(
+          circle at 50% 90%,
+          rgba(0, 215, 111, 0.06),
+          transparent 32%
+        ),
+        linear-gradient(
+          180deg,
+          var(--page-bg-soft) 0%,
+          var(--page-bg) 100%
+        );
 
-    .meta {
-      opacity: 0.8;
-      margin: 0;
-      font-size: 0.95rem;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      margin-top: 28px;
-    }
-
-    p {
-      margin: 10px 0;
-    }
-
-    ul {
-      margin: 8px 0 8px 20px;
+      line-height: 1.65;
+      overflow-x: hidden;
     }
 
     a {
+      color: #3157e5;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
       word-break: break-word;
     }
 
-    .note {
+    a:hover {
+      color: #6a3df0;
+    }
+
+    .aurora {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .aurora span {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      filter: blur(85px);
+      opacity: 0.16;
+      animation: floatGlow 16s ease-in-out infinite alternate;
+    }
+
+    .aurora .a1 {
+      top: -140px;
+      left: -110px;
+      background: linear-gradient(
+        135deg,
+        var(--red),
+        var(--orange),
+        var(--yellow)
+      );
+    }
+
+    .aurora .a2 {
+      top: 16%;
+      right: -180px;
+      background: linear-gradient(
+        135deg,
+        var(--blue),
+        var(--violet),
+        var(--pink)
+      );
+      animation-delay: -5s;
+    }
+
+    .aurora .a3 {
+      bottom: -180px;
+      left: 26%;
+      background: linear-gradient(
+        135deg,
+        var(--green),
+        var(--cyan),
+        var(--blue)
+      );
+      animation-delay: -9s;
+    }
+
+    @keyframes floatGlow {
+      from {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+
+      to {
+        transform: translate3d(45px, 30px, 0) scale(1.12);
+      }
+    }
+
+    .page {
+      width: min(calc(100% - 32px), var(--content-width));
+      margin-inline: auto;
+      padding: 32px 0 64px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+
+      padding: clamp(28px, 5vw, 62px);
+
+      border-radius: var(--radius-xl);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.92),
+          rgba(255, 255, 255, 0.70)
+        );
+
+      border: 1px solid rgba(255, 255, 255, 0.85);
+
+      box-shadow: var(--shadow);
+
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      z-index: -2;
+
+      background:
+        conic-gradient(
+          from 0deg,
+          var(--red),
+          var(--orange),
+          var(--yellow),
+          var(--green),
+          var(--cyan),
+          var(--blue),
+          var(--violet),
+          var(--pink),
+          var(--red)
+        );
+
+      animation: rotateRgb 16s linear infinite;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      z-index: -1;
+
+      border-radius: calc(var(--radius-xl) - 2px);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.96),
+          rgba(248, 244, 255, 0.88)
+        );
+    }
+
+    @keyframes rotateRgb {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+
+      margin-bottom: 24px;
+    }
+
+    .brand-mark {
+      position: relative;
+
+      width: 54px;
+      height: 54px;
+
+      border-radius: 50%;
+
+      background:
+        conic-gradient(
+          var(--red),
+          var(--yellow),
+          var(--green),
+          var(--cyan),
+          var(--blue),
+          var(--pink),
+          var(--red)
+        );
+
+      box-shadow:
+        0 8px 22px rgba(51, 44, 88, 0.15);
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 10px;
+
+      border-radius: 50%;
+
+      background: #f8f5ff;
+    }
+
+    .brand-name {
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .app-name {
+      margin-top: 2px;
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
+
+    h1 {
+      margin: 0;
+
+      max-width: 820px;
+
+      font-size: clamp(2.8rem, 8vw, 5.7rem);
+      line-height: 0.96;
+      letter-spacing: -0.055em;
+
+      background:
+        linear-gradient(
+          90deg,
+          #f52828 0%,
+          #ff8a00 16%,
+          #e5c500 30%,
+          #00b96b 44%,
+          #00aedd 58%,
+          #2864e9 72%,
+          #7048eb 86%,
+          #f02e9c 100%
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+    }
+
+    .hero-copy {
+      margin: 26px 0 0;
+
+      max-width: 780px;
+
+      color: var(--text-soft);
+
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.75;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      margin-top: 28px;
+    }
+
+    .badge {
+      padding: 9px 14px;
+
+      border-radius: 999px;
+
+      background: rgba(255, 255, 255, 0.82);
+
+      border: 1px solid var(--border);
+
+      font-size: 0.86rem;
+      font-weight: 700;
+
+      color: #504b5a;
+
+      box-shadow:
+        0 8px 20px rgba(50, 40, 80, 0.05);
+    }
+
+    .intro {
+      margin-top: 22px;
+
+      padding: 24px 26px;
+
+      border-radius: var(--radius-lg);
+
+      background: var(--panel);
+
+      border: 1px solid rgba(255, 255, 255, 0.72);
+
+      box-shadow: var(--shadow);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .intro p {
+      margin: 0;
+      color: var(--text-soft);
+    }
+
+    .intro strong {
+      color: var(--text);
+    }
+
+    .contents {
+      margin-top: 22px;
+
+      padding: 26px;
+
+      border-radius: var(--radius-lg);
+
+      background: var(--panel);
+
+      border: 1px solid rgba(255, 255, 255, 0.72);
+
+      box-shadow: var(--shadow);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .contents h2 {
+      margin: 0 0 18px;
+
+      font-size: 1.25rem;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--blue),
+          var(--violet),
+          var(--pink)
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .toc-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 10px;
+    }
+
+    .toc-grid a {
+      display: flex;
+      align-items: center;
+
+      min-height: 52px;
+
       padding: 12px 14px;
-      border-left: 4px solid currentColor;
-      opacity: 0.9;
-      margin: 16px 0;
+
+      border-radius: var(--radius-sm);
+
+      border: 1px solid var(--border);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.88),
+          rgba(248, 245, 255, 0.76)
+        );
+
+      color: #3c3944;
+
+      font-size: 0.87rem;
+      font-weight: 700;
+
+      text-decoration: none;
+
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        border-color 180ms ease;
+    }
+
+    .toc-grid a:hover {
+      transform: translateY(-2px);
+
+      border-color: rgba(80, 72, 180, 0.2);
+
+      box-shadow:
+        0 10px 24px rgba(63, 52, 113, 0.09);
+    }
+
+    main {
+      display: grid;
+      gap: 16px;
+
+      margin-top: 22px;
+    }
+
+    .policy-section {
+      position: relative;
+      overflow: hidden;
+
+      padding: clamp(22px, 4vw, 34px);
+
+      border-radius: var(--radius-lg);
+
+      background: var(--panel);
+
+      border: 1px solid rgba(255, 255, 255, 0.78);
+
+      box-shadow:
+        0 12px 32px rgba(44, 34, 73, 0.065);
+
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+
+      animation: sectionIn 520ms ease both;
+    }
+
+    .policy-section::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+
+      width: 5px;
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--red),
+          var(--yellow),
+          var(--green),
+          var(--cyan),
+          var(--blue),
+          var(--pink)
+        );
+    }
+
+    .policy-section:nth-child(2n)::before {
+      background:
+        linear-gradient(
+          180deg,
+          var(--blue),
+          var(--violet),
+          var(--pink),
+          var(--red)
+        );
+    }
+
+    .policy-section:nth-child(3n)::before {
+      background:
+        linear-gradient(
+          180deg,
+          var(--green),
+          var(--cyan),
+          var(--blue)
+        );
+    }
+
+    @keyframes sectionIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .policy-section h2 {
+      margin: 0 0 14px;
+
+      font-size: clamp(1.18rem, 2vw, 1.45rem);
+      line-height: 1.3;
+    }
+
+    .policy-section p {
+      margin: 10px 0;
+      color: #504c57;
+    }
+
+    .policy-section strong {
+      color: var(--text);
+    }
+
+    ul {
+      margin: 12px 0 12px 22px;
+      padding: 0;
+
+      color: #504c57;
+    }
+
+    li {
+      margin: 7px 0;
+      padding-left: 3px;
+    }
+
+    li::marker {
+      color: #6b5cff;
+    }
+
+    .highlight {
+      margin: 18px 0;
+
+      padding: 16px 18px;
+
+      border-radius: var(--radius-md);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 60, 83, 0.07),
+          rgba(0, 200, 255, 0.07),
+          rgba(124, 77, 255, 0.08)
+        );
+
+      border: 1px solid rgba(90, 77, 190, 0.09);
+    }
+
+    .highlight p {
+      margin: 0;
+    }
+
+    .service-links {
+      display: grid;
+      gap: 10px;
+
+      margin-top: 16px;
+    }
+
+    .service-link {
+      display: block;
+
+      padding: 14px 16px;
+
+      border-radius: var(--radius-sm);
+
+      background: rgba(255, 255, 255, 0.72);
+
+      border: 1px solid var(--border);
+
+      text-decoration: none;
+
+      transition:
+        transform 160ms ease,
+        box-shadow 160ms ease;
+    }
+
+    .service-link:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 10px 24px rgba(57, 49, 98, 0.08);
+    }
+
+    .service-link strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--text);
+    }
+
+    .service-link span {
+      font-size: 0.85rem;
+      color: var(--text-soft);
     }
 
     footer {
-      margin-top: 36px;
-      opacity: 0.85;
-      font-size: 0.9rem;
+      margin-top: 24px;
+
+      padding: 28px;
+
+      text-align: center;
+
+      border-radius: var(--radius-lg);
+
+      color: var(--text-soft);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.74),
+          rgba(245, 241, 255, 0.86)
+        );
+
+      border: 1px solid var(--border);
+    }
+
+    .footer-rgb {
+      width: 120px;
+      height: 4px;
+
+      margin: 0 auto 18px;
+
+      border-radius: 999px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--red),
+          var(--orange),
+          var(--yellow),
+          var(--green),
+          var(--cyan),
+          var(--blue),
+          var(--violet),
+          var(--pink)
+        );
+    }
+
+    @media (max-width: 860px) {
+      .toc-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width: min(calc(100% - 20px), var(--content-width));
+        padding-top: 10px;
+      }
+
+      .hero {
+        padding: 26px 20px 30px;
+        border-radius: 26px;
+      }
+
+      .brand-mark {
+        width: 46px;
+        height: 46px;
+      }
+
+      .toc-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contents,
+      .intro,
+      .policy-section {
+        border-radius: 22px;
+      }
+
+      .contents {
+        padding: 20px;
+      }
+
+      .policy-section {
+        padding: 23px 20px 23px 24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Privacy Policy for RGB Screen & Pixel Check</h1>
-
-  <p class="meta">
-    <strong>Effective date:</strong> September 5, 2026
-  </p>
-
-  <p class="meta">
-    <strong>Last updated:</strong> September 5, 2026
-  </p>
-</header>
-
-<p>
-  <strong>RGB Screen & Pixel Check</strong>, also known as
-  <strong>RGB Screen Light · Pixel Check</strong> (“the app”), is developed and
-  published by <strong>Naladimarth</strong>.
-</p>
-
-<p>
-  This Privacy Policy explains how information is handled when you use the
-  Android app, including information that may be processed by third-party
-  services used for crash reporting, optional usage analytics, advertising,
-  and privacy/consent management.
-</p>
-
-<h2>1. Core App Use and Local Data</h2>
-
-<p>
-  The app does not require an account, login, registration, or cloud account
-  operated by Naladimarth.
-</p>
-
-<p>
-  The core screen-light, colour-control, fullscreen, strobe, lock, and
-  Pixel Check features are designed to operate locally on your device and do
-  not require you to provide your name, email address, phone number, contacts,
-  files, photos, or other personal content.
-</p>
-
-<p>
-  Certain app preferences and privacy choices may be stored locally on your
-  device so that the app can remember your settings and choices between
-  sessions. This can include settings such as your optional usage-analytics
-  preference.
-</p>
-
-<p>
-  Naladimarth does not operate a user-account database or cloud-storage backend
-  for the app.
-</p>
-
-<p>
-  Network access may still be used by third-party services described in this
-  Policy, including Firebase Crashlytics, optional Firebase Analytics,
-  Google AdMob, Google User Messaging Platform (UMP), external links, and
-  email functionality.
-</p>
-
-<h2>2. Crash Reporting and Diagnostics</h2>
-
-<p>
-  The app uses <strong>Firebase Crashlytics</strong>, a service provided by
-  Google, to help identify crashes, diagnose technical problems, and improve
-  app stability.
-</p>
-
-<p>
-  Depending on the crash or diagnostic event, Firebase Crashlytics may process
-  technical information such as:
-</p>
-
-<ul>
-  <li>Crashlytics installation identifiers and Firebase installation identifiers</li>
-  <li>Crash traces, exception information, and diagnostic logs</li>
-  <li>App package, version, and build information</li>
-  <li>Device model and CPU architecture</li>
-  <li>Android operating system version</li>
-  <li>Device memory, storage, and other technical state relevant to a crash</li>
-  <li>Whether the app was in the foreground or background when a crash occurred</li>
-  <li>Timestamps and other technical information needed to diagnose a failure</li>
-</ul>
-
-<p>
-  Naladimarth uses this information for app stability, troubleshooting,
-  compatibility, and quality improvement.
-</p>
-
-<p>
-  The app does not intentionally attach your name, email address, phone number,
-  contacts, files, advertising ID, or other user-entered personal content to
-  Crashlytics reports.
-</p>
-
-<p>
-  Crash and diagnostic information processed by Firebase is subject to
-  Google/Firebase privacy, security, and retention practices.
-</p>
-
-<h2>3. Optional Usage Analytics</h2>
-
-<p>
-  The app includes <strong>Google Analytics for Firebase</strong> to help
-  Naladimarth understand aggregate app usage and improve the product.
-</p>
-
-<p>
-  <strong>Usage Analytics is optional and is OFF by default.</strong>
-  Analytics collection is enabled only if you choose to enable the
-  “Share usage analytics” option in the app.
-</p>
-
-<p>
-  You can later turn usage analytics off again from the app's privacy/settings
-  controls.
-</p>
-
-<p>
-  When usage analytics is enabled, Firebase Analytics may process standard
-  Analytics information and limited, coarse app-interaction events, such as:
-</p>
-
-<ul>
-  <li>App/session and engagement information</li>
-  <li>App version and device/operating-system information</li>
-  <li>General feature or mode usage</li>
-  <li>Menu, guide, feedback, or control actions represented by bounded event categories</li>
-  <li>Aggregate geographic information provided by the Analytics service</li>
-</ul>
-
-<p>
-  The app's Analytics implementation is designed not to log:
-</p>
-
-<ul>
-  <li>Your name, email address, or phone number</li>
-  <li>User-entered free text</li>
-  <li>Device serial numbers</li>
-  <li>Android Advertising ID for Firebase Analytics</li>
-  <li>Raw advertising-consent strings</li>
-  <li>Exact RGB, hue, brightness, or speed values from normal control interactions</li>
-  <li>Files, photos, contacts, microphone recordings, or camera content</li>
-</ul>
-
-<p>
-  Firebase Analytics Advertising ID collection is disabled for Analytics in
-  the app's Android configuration.
-</p>
-
-<p>
-  Analytics ad-personalization signals are also disabled by default for this
-  Analytics implementation.
-</p>
-
-<p>
-  Turning usage analytics off stops future Analytics collection by the app on
-  that installation. It may not automatically remove information that was
-  already processed or aggregated by Google before the setting was disabled.
-</p>
-
-<p>
-  <strong>Advertising consent and Usage Analytics are separate choices.</strong>
-  A choice made in Google's advertising consent form does not automatically
-  enable the app's optional Firebase Usage Analytics setting.
-</p>
-
-<h2>4. Advertising – Google AdMob</h2>
-
-<p>
-  The app may use the <strong>Google Mobile Ads SDK (AdMob)</strong> to display
-  advertising.
-</p>
-
-<p>
-  The planned ad-enabled experience is limited to one anchored adaptive banner
-  on the normal Home control screen. The app is designed not to display the
-  banner in clean functional modes such as fullscreen colour display,
-  Pixel Check, strobe mode, or locked clean-display mode.
-</p>
-
-<p>
-  Google states that the Mobile Ads SDK may automatically collect or share
-  certain information for advertising, analytics, measurement, security, and
-  fraud-prevention purposes. Depending on the device, region, user choices,
-  and applicable law, this may include:
-</p>
-
-<ul>
-  <li>
-    IP address, which may be used to estimate the device's general location
-  </li>
-
-  <li>
-    Ad and app interaction information, such as ad views, taps, and related
-    product interactions
-  </li>
-
-  <li>
-    Diagnostic and performance information relating to the app and advertising SDK
-  </li>
-
-  <li>
-    Device or app identifiers, which may include the Android Advertising ID,
-    App Set ID, or other permitted identifiers
-  </li>
-</ul>
-
-<p>
-  Advertising information may be processed by Google and eligible advertising
-  partners in accordance with your privacy choices, applicable law, Google's
-  policies, and the advertising configuration used by the app.
-</p>
-
-<p>
-  Ads may be personalised, non-personalised, or otherwise limited depending on
-  the user's consent choices, region, device settings, applicable law, and
-  Google's advertising systems.
-</p>
-
-<p>
-  Android users can reset or delete the Advertising ID through supported
-  Android privacy settings. The availability and behaviour of Advertising ID
-  controls depend on the Android version and device.
-</p>
-
-<h2>5. Advertising Consent and Privacy Choices</h2>
-
-<p>
-  The app uses Google's <strong>User Messaging Platform (UMP)</strong> to
-  manage advertising-related privacy choices where required.
-</p>
-
-<p>
-  The app may request an updated advertising-consent status when it starts.
-  This does <strong>not</strong> mean a consent message is shown every time the
-  app opens.
-</p>
-
-<p>
-  Google UMP determines whether a privacy or consent message is required based
-  on factors such as applicable regulation, region, the current consent state,
-  and the Privacy &amp; messaging configuration associated with the app.
-</p>
-
-<p>
-  For example, European-regulations consent requirements may apply to users in
-  the European Economic Area (EEA), United Kingdom, and Switzerland.
-  Other privacy messages may be used where applicable.
-</p>
-
-<p>
-  If a consent decision is required, UMP may present options such as consenting,
-  declining consent, or managing detailed privacy choices.
-</p>
-
-<p>
-  When an advertising consent requirement applies, the app is designed not to
-  request advertising until UMP indicates that advertising requests are
-  permitted.
-</p>
-
-<p>
-  Where Google UMP indicates that a privacy-options entry point is required,
-  the app will provide a way for users to reopen and change relevant
-  advertising privacy choices.
-</p>
-
-<p>
-  Advertising consent handled through UMP remains separate from the optional
-  Firebase Usage Analytics setting described in Section 3.
-</p>
-
-<h2>6. Feedback – Report a Bug and Request a Feature</h2>
-
-<p>
-  The app provides <strong>Report a bug</strong> and
-  <strong>Request a feature</strong> actions using your device's email
-  application. Naladimarth does not use a separate feedback backend for these
-  actions.
-</p>
-
-<p>
-  Before reading optional device details for a feedback email, the app asks
-  whether you want to continue and include those details.
-</p>
-
-<p>
-  If you choose to continue, the app may automatically prepare the following
-  limited information in the email:
-</p>
-
-<ul>
-  <li>App name</li>
-  <li>App version</li>
-  <li>App build number</li>
-  <li>Android version</li>
-  <li>Device manufacturer</li>
-  <li>Device model</li>
-  <li>Device locale</li>
-</ul>
-
-<p>
-  The app does not automatically add the following to feedback emails:
-</p>
-
-<ul>
-  <li>Android Advertising ID</li>
-  <li>Device serial number</li>
-  <li>Files or photos</li>
-  <li>Contacts</li>
-  <li>Location</li>
-  <li>Crash logs</li>
-  <li>Other user content</li>
-</ul>
-
-<p>
-  The email is opened in your email application for review. You decide whether
-  to send it and may edit or remove its contents before sending.
-</p>
-
-<p>
-  If you send an email to Naladimarth, the email address, message, and any
-  information you voluntarily add are transmitted through your email provider
-  and received by Naladimarth for support or feedback purposes.
-</p>
-
-<h2>7. Data Retention and Deletion</h2>
-
-<p>
-  Local app preferences remain on your device until they are changed, app data
-  is cleared, or the app is removed, subject to Android device backup and
-  restore behaviour.
-</p>
-
-<p>
-  Naladimarth does not maintain a user account or server-side profile for the
-  core app.
-</p>
-
-<p>
-  Data processed through Firebase Crashlytics, Firebase Analytics, Google
-  AdMob, and UMP is retained and handled according to the applicable Google
-  service settings, policies, and legal requirements.
-</p>
-
-<p>
-  Because these services generally use technical or pseudonymous identifiers
-  rather than an account managed by Naladimarth, Naladimarth may not always be
-  able to identify or retrieve information associated with a particular
-  individual device from a general deletion request.
-</p>
-
-<p>
-  Turning off optional Usage Analytics stops future Analytics collection for
-  that app installation, but does not necessarily delete previously processed
-  or aggregated Analytics information.
-</p>
-
-<p>
-  Where advertising privacy options are required, users may use the in-app
-  privacy-options entry point to review or change applicable advertising
-  choices.
-</p>
-
-<p>
-  Support emails may be retained for as long as reasonably necessary to respond
-  to the request, maintain support records, resolve issues, or meet applicable
-  legal obligations.
-</p>
-
-<h2>8. Data Security</h2>
-
-<p>
-  Reasonable measures are used to limit the information handled directly by
-  the app.
-</p>
-
-<p>
-  Google states that information transmitted by its Mobile Ads SDK is
-  encrypted in transit using Transport Layer Security (TLS). Firebase services
-  also use Google security infrastructure for data transmission and
-  processing.
-</p>
-
-<p>
-  No method of electronic transmission, processing, or storage can be
-  guaranteed to be completely secure.
-</p>
-
-<p>
-  Emails you choose to send are also subject to the security and privacy
-  practices of your email provider.
-</p>
-
-<h2>9. Permissions and Device Access</h2>
-
-<p>
-  The app uses device capabilities required for its screen-light, brightness,
-  display-mode, keep-screen-awake, and related functionality.
-</p>
-
-<p>
-  The app does not request access to sensitive device content such as:
-</p>
-
-<ul>
-  <li>Precise or background location</li>
-  <li>Contacts</li>
-  <li>Camera</li>
-  <li>Microphone</li>
-  <li>Photos, videos, or general file storage</li>
-  <li>SMS messages</li>
-  <li>Call logs</li>
-</ul>
-
-<p>
-  Third-party services such as Firebase and Google AdMob use internet/network
-  access to provide their services.
-</p>
-
-<p>
-  The Google Mobile Ads SDK may declare Android's Advertising ID permission so
-  that the SDK can access the Advertising ID where available and legally
-  permitted. This is not a runtime permission that gives the app access to
-  contacts, files, camera, microphone, or precise GPS location.
-</p>
-
-<p>
-  Firebase Analytics Advertising ID collection is separately disabled in the
-  app's Analytics configuration.
-</p>
-
-<h2>10. Children’s Privacy</h2>
-
-<p>
-  The app is designed as a general-purpose screen-light and display-testing
-  utility and does not require users to create an account or directly provide
-  a name, email address, phone number, contacts, files, or similar personal
-  information in order to use its core features.
-</p>
-
-<p>
-  Third-party services used by the app may process technical, diagnostic,
-  analytics, consent, or advertising information as described in this Policy.
-</p>
-
-<p>
-  If you are a parent or guardian and believe that personal information has
-  been provided to Naladimarth inappropriately, please contact us using the
-  email address below.
-</p>
-
-<h2>11. Your Privacy Rights</h2>
-
-<p>
-  Depending on where you live, applicable privacy laws may provide rights
-  relating to personal data, which can include rights to access, correct,
-  delete, restrict or object to certain processing, withdraw consent, or
-  exercise advertising opt-out choices.
-</p>
-
-<p>
-  The exact rights available to you depend on your jurisdiction and the type of
-  processing involved.
-</p>
-
-<p>
-  Advertising privacy and consent choices may be available through Google's
-  UMP privacy messages and, where required, the app's Privacy Options entry.
-</p>
-
-<p>
-  Optional Firebase Usage Analytics can be enabled or disabled independently
-  through the app.
-</p>
-
-<p>
-  You can also use Android privacy controls to manage settings such as the
-  Advertising ID where supported.
-</p>
-
-<p>
-  If you have a privacy question or request relating to Naladimarth's handling
-  of information, contact:
-  <a href="mailto:support@naladimarth.com">support@naladimarth.com</a>.
-</p>
-
-<h2>12. Third-Party Services</h2>
-
-<p>
-  The app uses services provided by Google. Their processing of information is
-  governed by their own terms, policies, configurations, and applicable law.
-</p>
-
-<p>
-  Relevant information includes:
-</p>
-
-<ul>
-  <li>
-    <strong>Google Privacy Policy:</strong><br />
-    <a
-      href="https://policies.google.com/privacy"
-      target="_blank"
-      rel="noopener noreferrer"
+<div class="aurora" aria-hidden="true">
+  <span class="a1"></span>
+  <span class="a2"></span>
+  <span class="a3"></span>
+</div>
+
+<div class="page">
+
+  <header class="hero">
+
+    <div class="brand-row">
+      <div class="brand-mark" aria-hidden="true"></div>
+
+      <div>
+        <div class="brand-name">Naladimarth</div>
+        <div class="app-name">RGB Screen Light · Pixel Check</div>
+      </div>
+    </div>
+
+    <h1>Privacy Policy</h1>
+
+    <p class="hero-copy">
+      Clear information about what stays on your device, what limited technical
+      information may be processed by Google services, and the privacy choices
+      available when using RGB Screen Light · Pixel Check.
+    </p>
+
+    <div class="badges">
+      <span class="badge">Effective: 5 September 2026</span>
+      <span class="badge">General-audience utility</span>
+      <span class="badge">No account required</span>
+      <span class="badge">Usage Analytics off by default</span>
+    </div>
+
+  </header>
+
+  <section class="intro">
+
+    <p>
+      <strong>RGB Screen &amp; Pixel Check</strong>, also known as
+      <strong>RGB Screen Light · Pixel Check</strong> (“the app”), is developed
+      and published by <strong>Naladimarth</strong>.
+      The core screen-light and display-testing functions work locally on the
+      device. The app may also use Google services for crash diagnostics,
+      optional usage analytics, advertising, and privacy/consent management as
+      described below.
+    </p>
+
+  </section>
+
+  <nav class="contents" aria-label="Privacy Policy contents">
+
+    <h2>Policy contents</h2>
+
+    <div class="toc-grid">
+
+      <a href="#local-data">1. Core app use &amp; local data</a>
+      <a href="#crash-reporting">2. Crash reporting</a>
+      <a href="#analytics">3. Optional usage analytics</a>
+
+      <a href="#advertising">4. Advertising</a>
+      <a href="#consent">5. Consent &amp; privacy choices</a>
+      <a href="#feedback">6. Feedback</a>
+
+      <a href="#retention">7. Retention &amp; deletion</a>
+      <a href="#security">8. Security</a>
+      <a href="#permissions">9. Permissions</a>
+
+      <a href="#children">10. Children’s privacy</a>
+      <a href="#rights">11. Your privacy rights</a>
+      <a href="#third-party">12. Third-party services</a>
+
+      <a href="#sale">13. Accounts &amp; sale of content</a>
+      <a href="#changes">14. Policy changes</a>
+      <a href="#contact">15. Contact</a>
+
+    </div>
+
+  </nav>
+
+  <main>
+
+    <section
+      class="policy-section"
+      id="local-data"
     >
-      https://policies.google.com/privacy
-    </a>
-  </li>
 
-  <li>
-    <strong>How Google uses information from apps that use its services:</strong><br />
-    <a
-      href="https://policies.google.com/technologies/partner-sites"
-      target="_blank"
-      rel="noopener noreferrer"
+      <h2>1. Core App Use and Local Data</h2>
+
+      <p>
+        The app does not require an account, login, registration, or cloud
+        account operated by Naladimarth.
+      </p>
+
+      <p>
+        The core screen-light, colour-control, fullscreen, strobe, lock, and
+        Pixel Check features are designed to operate locally on your device and
+        do not require you to provide your name, email address, phone number,
+        contacts, files, photos, or other personal content.
+      </p>
+
+      <p>
+        Certain app preferences and privacy choices may be stored locally on
+        your device so that the app can remember your settings and choices
+        between sessions. This can include settings such as your optional
+        usage-analytics preference.
+      </p>
+
+      <p>
+        Naladimarth does not operate a user-account database or cloud-storage
+        backend for the app.
+      </p>
+
+      <p>
+        Network access may still be used by third-party services described in
+        this Policy, including Firebase Crashlytics, optional Firebase
+        Analytics, Google AdMob, Google User Messaging Platform (UMP),
+        external links, and email functionality.
+      </p>
+
+    </section>
+
+    <section
+      class="policy-section"
+      id="crash-reporting"
     >
-      https://policies.google.com/technologies/partner-sites
-    </a>
-  </li>
 
-  <li>
-    <strong>Google advertising technologies:</strong><br />
-    <a
-      href="https://policies.google.com/technologies/ads"
-      target="_blank"
-      rel="noopener noreferrer"
+      <h2>2. Crash Reporting and Diagnostics</h2>
+
+      <p>
+        The app uses <strong>Firebase Crashlytics</strong>, a service provided
+        by Google, to help identify crashes, diagnose technical problems, and
+        improve app stability.
+      </p>
+
+      <p>
+        Depending on the crash or diagnostic event, Firebase Crashlytics may
+        process technical information such as:
+      </p>
+
+      <ul>
+        <li>
+          Crashlytics installation identifiers and Firebase installation
+          identifiers
+        </li>
+
+        <li>
+          Crash traces, exception information, and diagnostic logs
+        </li>
+
+        <li>
+          App package, version, and build information
+        </li>
+
+        <li>
+          Device model and CPU architecture
+        </li>
+
+        <li>
+          Android operating system version
+        </li>
+
+        <li>
+          Device memory, storage, and other technical state relevant to a crash
+        </li>
+
+        <li>
+          Whether the app was in the foreground or background when a crash
+          occurred
+        </li>
+
+        <li>
+          Timestamps and other technical information needed to diagnose a
+          failure
+        </li>
+      </ul>
+
+      <p>
+        Naladimarth uses this information for app stability, troubleshooting,
+        compatibility, and quality improvement.
+      </p>
+
+      <p>
+        The app does not intentionally attach your name, email address, phone
+        number, contacts, files, advertising ID, or other user-entered personal
+        content to Crashlytics reports.
+      </p>
+
+      <p>
+        Crash and diagnostic information processed by Firebase is subject to
+        Google/Firebase privacy, security, and retention practices.
+      </p>
+
+    </section>
+
+    <section
+      class="policy-section"
+      id="analytics"
     >
-      https://policies.google.com/technologies/ads
-    </a>
-  </li>
 
-  <li>
-    <strong>Firebase privacy and security information:</strong><br />
-    <a
-      href="https://firebase.google.com/support/privacy"
-      target="_blank"
-      rel="noopener noreferrer"
+      <h2>3. Optional Usage Analytics</h2>
+
+      <div class="highlight">
+        <p>
+          <strong>Usage Analytics is optional and OFF by default.</strong>
+          Analytics collection is enabled only when you choose to enable
+          “Share usage analytics” in the app.
+        </p>
+      </div>
+
+      <p>
+        The app includes <strong>Google Analytics for Firebase</strong> to help
+        Naladimarth understand aggregate app usage and improve the product.
+      </p>
+
+      <p>
+        You can later turn usage analytics off again from the app's
+        privacy/settings controls.
+      </p>
+
+      <p>
+        When usage analytics is enabled, Firebase Analytics may process standard
+        Analytics information and limited, coarse app-interaction events,
+        such as:
+      </p>
+
+      <ul>
+        <li>App/session and engagement information</li>
+        <li>App version and device/operating-system information</li>
+        <li>General feature or mode usage</li>
+
+        <li>
+          Menu, guide, feedback, or control actions represented by bounded
+          event categories
+        </li>
+
+        <li>
+          Aggregate geographic information provided by the Analytics service
+        </li>
+      </ul>
+
+      <p>
+        The app's Analytics implementation is designed not to log:
+      </p>
+
+      <ul>
+        <li>Your name, email address, or phone number</li>
+        <li>User-entered free text</li>
+        <li>Device serial numbers</li>
+        <li>Android Advertising ID for Firebase Analytics</li>
+        <li>Raw advertising-consent strings</li>
+
+        <li>
+          Exact RGB, hue, brightness, or speed values from normal control
+          interactions
+        </li>
+
+        <li>
+          Files, photos, contacts, microphone recordings, or camera content
+        </li>
+      </ul>
+
+      <p>
+        Firebase Analytics Advertising ID collection is disabled for Analytics
+        in the app's Android configuration.
+      </p>
+
+      <p>
+        Analytics ad-personalisation signals are also disabled by default for
+        this Analytics implementation.
+      </p>
+
+      <p>
+        Turning usage analytics off stops future Analytics collection by the
+        app on that installation. It may not automatically remove information
+        that was already processed or aggregated by Google before the setting
+        was disabled.
+      </p>
+
+      <div class="highlight">
+        <p>
+          <strong>
+            Advertising consent and Usage Analytics are separate choices.
+          </strong>
+          A choice made in Google's advertising consent form does not
+          automatically enable the app's optional Firebase Usage Analytics
+          setting.
+        </p>
+      </div>
+
+    </section>
+
+    <section
+      class="policy-section"
+      id="advertising"
     >
-      https://firebase.google.com/support/privacy
-    </a>
-  </li>
-</ul>
 
-<h2>13. No User Account or Direct Sale of User Content</h2>
+      <h2>4. Advertising – Google AdMob</h2>
 
-<p>
-  Naladimarth does not require a user account for this app and does not operate
-  a separate advertising profile database based on user-entered content.
-</p>
+      <p>
+        The app may use the
+        <strong>Google Mobile Ads SDK (AdMob)</strong>
+        to display advertising in versions where advertising is enabled.
+      </p>
 
-<p>
-  Naladimarth does not sell files, photos, contacts, messages, or other personal
-  content entered by users because the app does not collect such content as
-  part of its core operation.
-</p>
+      <p>
+        The ad-enabled experience is designed to use one anchored adaptive
+        banner on the normal Home control screen.
+      </p>
 
-<p>
-  Google AdMob and advertising partners may collect or share advertising and
-  technical information as described in Section 4 and under their own privacy
-  policies. Certain privacy laws may use specific definitions of terms such as
-  “sale” or “sharing”; where applicable, advertising privacy choices are
-  provided through the relevant consent or privacy mechanisms.
-</p>
+      <p>
+        The app is designed not to display the banner in clean functional
+        modes such as:
+      </p>
 
-<h2>14. Changes to This Privacy Policy</h2>
+      <ul>
+        <li>Fullscreen colour display</li>
+        <li>Pixel Check</li>
+        <li>Strobe mode</li>
+        <li>Locked clean-display mode</li>
+      </ul>
 
-<p>
-  This Privacy Policy may be updated when the app's functionality, third-party
-  services, privacy controls, advertising configuration, legal requirements,
-  or data practices change.
-</p>
+      <p>
+        Google states that the Mobile Ads SDK may automatically collect or
+        share certain information for advertising, analytics, measurement,
+        security, and fraud-prevention purposes.
+      </p>
 
-<p>
-  The “Last updated” date at the top of this page will be changed when a
-  material revision is published.
-</p>
+      <p>
+        Depending on the device, region, user choices, and applicable law,
+        this may include:
+      </p>
 
-<h2>15. Contact</h2>
+      <ul>
+        <li>
+          IP address, which may be used to estimate the device's general
+          location
+        </li>
 
-<p>
-  If you have questions about this Privacy Policy or the app's privacy
-  practices, contact:
-</p>
+        <li>
+          Ad and app interaction information, such as ad views, taps, and
+          related product interactions
+        </li>
 
-<p>
-  <strong>Naladimarth</strong><br />
+        <li>
+          Diagnostic and performance information relating to the app and
+          advertising SDK
+        </li>
 
-  <strong>Email:</strong>
-  <a href="mailto:support@naladimarth.com">
-    support@naladimarth.com
-  </a>
-</p>
+        <li>
+          Device or app identifiers, which may include the Android Advertising
+          ID, App Set ID, or other permitted identifiers
+        </li>
+      </ul>
 
-<footer>
-  <p>© 2026 Naladimarth. All rights reserved.</p>
-</footer>
+      <p>
+        Advertising information may be processed by Google and eligible
+        advertising partners in accordance with your privacy choices,
+        applicable law, Google's policies, and the advertising configuration
+        used by the app.
+      </p>
+
+      <p>
+        Ads may be personalised, non-personalised, or otherwise limited
+        depending on the user's consent choices, region, device settings,
+        applicable law, and Google's advertising systems.
+      </p>
+
+      <p>
+        Android users can reset or delete the Advertising ID through supported
+        Android privacy settings. Availability and behaviour depend on the
+        Android version and device.
+      </p>
+
+    </section>
+
+    <section
+      class="policy-section"
+      id="consent"
+    >
+
+      <h2>5. Advertising Consent and Privacy Choices</h2>
+
+      <p>
+        The app uses Google's
+        <strong>User Messaging Platform (UMP)</strong>
+        to manage advertising-related privacy choices where required.
+      </p>
+
+      <p>
+        The app may request an updated advertising-consent status when it
+        starts.
+      </p>
+
+      <div class="highlight">
+        <p>
+          <strong>
+            This does not mean a consent message is shown every time the app
+            opens.
+          </strong>
+        </p>
+      </div>
+
+      <p>
+        Google UMP determines whether a privacy or consent message is required
+        based on factors such as applicable regulation, region, the current
+        consent state, and the Privacy &amp; messaging configuration associated
+        with the app.
+      </p>
+
+      <p>
+        For example, European-regulations consent requirements may apply to
+        users in the European Economic Area (EEA), United Kingdom, and
+        Switzerland. Other privacy messages may be used where applicable.
+      </p>
+
+      <p>
+        If a consent decision is required, UMP may present options such as
+        consenting, declining consent, or managing detailed privacy choices.
+      </p>
+
+      <p>
+        When an advertising consent requirement applies, the app is designed
+        not to request advertising until UMP indicates that advertising
+        requests are permitted.
+      </p>
+
+      <p>
+        Where Google UMP indicates that a privacy-options entry point is
+        required, the app will provide a way for users to reopen and change
+        relevant advertising privacy choices.
+      </p>
+
+      <p>
+        Advertising consent handled through UMP remains separate from the
+        optional Firebase Usage Analytics setting described in Section 3.
+      </p>
+
+    </section>
+
+    <section
+      class="policy-section"
+      id="feedback"
+    >
+
+      <h2>6. Feedback – Report a Bug and Request a Feature</h2>
+
+      <p>
+        The app provides <strong>Report a bug</strong> and
+        <strong>Request a feature</strong> actions using your device's email
+        application.
+      </p>
+
+      <p>
+        Naladimarth does not use a separate feedback backend for these actions.
+      </p>
+
+      <p>
+        Before reading optional device details for a feedback email, the app
+        asks whether you want to continue and include those details.
+      </p>
+
+      <p>
+        If you choose to continue, the app may automatically prepare:
+      </p>
+
+      <ul>
+        <li>App name</li>
+        <li>App version</li>
+        <li>App build number</li>
+        <li>Android version</li>
+        <li>Device manufacturer</li>
+        <li>Device model</li>
+        <li>Device locale</li>
+      </ul>
+
+      <p>
+        The app does not automatically add:
+      </p>
+
+      <ul>
+        <li>Android Advertising ID</li>
+        <li>Device serial number</li>
+        <li>Files or photos</li>
+        <li>Contacts</li>
+        <li>Location</li>
+        <li>Crash logs</li>
+        <li>Other user content</li>
+      </ul>
+
+      <p>
+        The email is opened in your email application for review.
+        You decide whether to send it and may edit or remove its contents before
+        sending.
+      </p>
+
+      <p>
+        If you send an email to Naladimarth, the email address, message, and
+        any information you voluntarily add are transmitted through your email
+        provider and received by Naladimarth for support or feedback purposes.
+      </p>
+
+    </section>
+
+    <section
+      class="policy-section"
+      id="retention"
+    >
+
+      <h2>7. Data Retention and Deletion</h2>
+
+      <p>
+        Local app preferences remain on your device until they are changed,
+        app data is cleared, or the app is removed, subject to Android device
+        backup and restore behaviour.
+      </p>
+
+      <p>
+        Naladimarth does not maintain a user account or server-side profile for
+        the core app.
+      </p>
+
+      <p>
+        Data processed through Firebase Crashlytics, Firebase Analytics,
+        Google AdMob, and UMP is retained and handled according to the
+        applicable Google service settings, policies, and legal requirements.
+      </p>
+
+      <p>
+        Because these services generally use technical or pseudonymous
+        identifiers rather than an account managed by Naladimarth, Naladimarth
+        may not always be able to identify or retrieve information associated
+        with a particular individual device from a general deletion request.
+      </p>
+
+      <p>
+        Turning off optional Usage Analytics stops future Analytics collection
+        for that app installation, but does not necessarily delete previously
+        processed or aggregated Analytics information.
+      </p>
+
+      <p>
+        Where advertising privacy options are required, users may use the
+        in-app privacy-options entry point to review or change applicable
+        advertising choices.
+      </p>
+
+      <p>
+        Support emails may be retained for as long as reasonably necessary to
+        respond to the request, maintain support records, resolve issues, or
+        meet applicable legal obligations.
+      </p>
+
+    </section>
+
+    <section
+      class="policy-section"
+      id="security"
+    >
+
+      <h2>8. Data Security</h2>
+
+      <p>
+        Reasonable measures are used to limit the information handled directly
+        by the app.
+      </p>
+
+      <p>
+        Google states that information transmitted by its Mobile Ads SDK is
+        encrypted in transit using Transport Layer Security (TLS).
+      </p>
+
+      <p>
+        Firebase services also use Google security infrastructure for data
+        transmission and processing.
+      </p>
+
+      <p>
+        No method of electronic transmission, processing, or storage can be
+        guaranteed to be completely secure.
+      </p>
+
+      <p>
+        Emails you choose to send are also subject to the security and privacy
+        practices of your email provider.
+      </p>
+
+    </section>
+
+    <section
+      class="policy-section"
+      id="permissions"
+    >
+
+      <h2>9. Permissions and Device Access</h2>
+
+      <p>
+        The app uses device capabilities required for its screen-light,
+        brightness, display-mode, keep-screen-awake, and related functionality.
+      </p>
+
+      <p>
+        The app does not request access to sensitive device content such as:
+      </p>
+
+      <ul>
+        <li>Precise or background location</li>
+        <li>Contacts</li>
+        <li>Camera</li>
+        <li>Microphone</li>
+        <li>Photos, videos, or general file storage</li>
+        <li>SMS messages</li>
+        <li>Call logs</li>
+      </ul>
+
+      <p>
+        Third-party services such as Firebase and Google AdMob use
+        internet/network access to provide their services.
+      </p>
+
+      <p>
+        The Google Mobile Ads SDK may declare Android's Advertising ID
+        permission so that the SDK can access the Advertising ID where
+        available and legally permitted.
+      </p>
+
+      <p>
+        This is not a runtime permission that gives the app access to contacts,
+        files, camera, microphone, or precise GPS location.
+      </p>
+
+      <p>
+        Firebase Analytics Advertising ID collection is separately disabled in
+        the app's Analytics configuration.
+      </p>
+
+    </section>
+
+    <section
+      class="policy-section"
+      id="children"
+    >
+
+      <h2>10. Children’s Privacy</h2>
+
+      <p>
+        The app is designed as a general-purpose screen-light and
+        display-testing utility and does not require users to create an account
+        or directly provide a name, email address, phone number, contacts,
+        files, or similar personal information in order to use its core
+        features.
+      </p>
+
+      <p>
+        Third-party services used by the app may process technical, diagnostic,
+        analytics, consent, or advertising information as described in this
+        Policy.
+      </p>
+
+      <p>
+        If you are a parent or guardian and believe that personal information
+        has been provided to Naladimarth inappropriately, please contact us
+        using the email address below.
+      </p>
+
+    </section>
+
+    <section
+      class="policy-section"
+      id="rights"
+    >
+
+      <h2>11. Your Privacy Rights</h2>
+
+      <p>
+        Depending on where you live, applicable privacy laws may provide rights
+        relating to personal data.
+      </p>
+
+      <p>
+        These can include rights to access, correct, delete, restrict or object
+        to certain processing, withdraw consent, or exercise advertising
+        opt-out choices.
+      </p>
+
+      <p>
+        The exact rights available to you depend on your jurisdiction and the
+        type of processing involved.
+      </p>
+
+      <p>
+        Advertising privacy and consent choices may be available through
+        Google's UMP privacy messages and, where required, the app's Privacy
+        Options entry.
+      </p>
+
+      <p>
+        Optional Firebase Usage Analytics can be enabled or disabled
+        independently through the app.
+      </p>
+
+      <p>
+        You can also use Android privacy controls to manage settings such as the
+        Advertising ID where supported.
+      </p>
+
+      <p>
+        If you have a privacy question or request relating to Naladimarth's
+        handling of information, contact
+        <a href="mailto:support@naladimarth.com">
+          support@naladimarth.com
+        </a>.
+      </p>
+
+    </section>
+
+    <section
+      class="policy-section"
+      id="third-party"
+    >
+
+      <h2>12. Third-Party Services</h2>
+
+      <p>
+        The app uses services provided by Google. Their processing of
+        information is governed by their own terms, policies, configurations,
+        and applicable law.
+      </p>
+
+      <div class="service-links">
+
+        <a
+          class="service-link"
+          href="https://policies.google.com/privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <strong>Google Privacy Policy</strong>
+          <span>policies.google.com/privacy</span>
+        </a>
+
+        <a
+          class="service-link"
+          href="https://policies.google.com/technologies/partner-sites"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <strong>How Google uses information from apps using its services</strong>
+          <span>policies.google.com/technologies/partner-sites</span>
+        </a>
+
+        <a
+          class="service-link"
+          href="https://policies.google.com/technologies/ads"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <strong>Google advertising technologies</strong>
+          <span>policies.google.com/technologies/ads</span>
+        </a>
+
+        <a
+          class="service-link"
+          href="https://firebase.google.com/support/privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <strong>Firebase privacy and security information</strong>
+          <span>firebase.google.com/support/privacy</span>
+        </a>
+
+      </div>
+
+    </section>
+
+    <section
+      class="policy-section"
+      id="sale"
+    >
+
+      <h2>13. No User Account or Direct Sale of User Content</h2>
+
+      <p>
+        Naladimarth does not require a user account for this app and does not
+        operate a separate advertising profile database based on user-entered
+        content.
+      </p>
+
+      <p>
+        Naladimarth does not sell files, photos, contacts, messages, or other
+        personal content entered by users because the app does not collect such
+        content as part of its core operation.
+      </p>
+
+      <p>
+        Google AdMob and advertising partners may collect or share advertising
+        and technical information as described in Section 4 and under their own
+        privacy policies.
+      </p>
+
+      <p>
+        Certain privacy laws may use specific definitions of terms such as
+        “sale” or “sharing”; where applicable, advertising privacy choices are
+        provided through the relevant consent or privacy mechanisms.
+      </p>
+
+    </section>
+
+    <section
+      class="policy-section"
+      id="changes"
+    >
+
+      <h2>14. Changes to This Privacy Policy</h2>
+
+      <p>
+        This Privacy Policy may be updated when the app's functionality,
+        third-party services, privacy controls, advertising configuration,
+        legal requirements, or data practices change.
+      </p>
+
+      <p>
+        The effective or last-updated date shown at the top of this page will
+        be changed when a material revision is published.
+      </p>
+
+    </section>
+
+    <section
+      class="policy-section"
+      id="contact"
+    >
+
+      <h2>15. Contact</h2>
+
+      <p>
+        If you have questions about this Privacy Policy or the app's privacy
+        practices, contact:
+      </p>
+
+      <p>
+        <strong>Naladimarth</strong>
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:support@naladimarth.com">
+          support@naladimarth.com
+        </a>
+      </p>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <div
+      class="footer-rgb"
+      aria-hidden="true"
+    ></div>
+
+    <p>
+      <strong>RGB Screen Light · Pixel Check</strong>
+    </p>
+
+    <p>
+      © 2026 Naladimarth. All rights reserved.
+    </p>
+
+  </footer>
+
+</div>
 
 </body>
 </html>
