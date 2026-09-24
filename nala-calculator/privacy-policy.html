@@ -715,15 +715,15 @@
 
       <p class="hero-summary">
         This policy explains what information stays on your device, what limited
-        technical data may be processed by Google services, and the choices available
-        to you when using Themed Calculator.
+        technical and advertising data may be processed by Google services, and the
+        privacy choices available when using Themed Calculator.
       </p>
 
       <div class="meta-row">
         <span class="meta-pill">
-          <strong>Effective date:&nbsp;</strong> 31 July 2026
+          <strong>Effective / last updated:&nbsp;</strong> 24 September 2026
         </span>
-        <span class="meta-pill">General-audience utility app</span>
+        <span class="meta-pill">Google Play target audience: 18+</span>
         <span class="meta-pill">No account required</span>
       </div>
     </header>
@@ -732,9 +732,11 @@
       <p>
         <strong>Themed Calculator</strong> is developed and maintained by
         <strong>Naladimarth</strong>. Core calculator functions do not require an
-        account. Calculation history and preferences are stored locally on the device.
-        The app uses Google AdMob for optional rewarded advertising and Firebase
-        Crashlytics for stability diagnostics.
+        account. Calculation history, theme state, number-format choice, haptic
+        preference, and walkthrough state are stored locally on the device. The app
+        uses Google AdMob for optional rewarded advertising, Google User Messaging
+        Platform (UMP) for advertising consent/privacy choices where required, and
+        Firebase Crashlytics for stability diagnostics.
       </p>
     </section>
 
@@ -770,23 +772,27 @@
         </div>
 
         <p>
-          Themed Calculator is a general-purpose calculator and theme-customization
-          utility. Its features include calculation entry and evaluation, live result
-          preview, cursor editing, calculation history, selectable calculator themes,
-          optional button sounds and haptic feedback, and an in-app walkthrough.
+          Themed Calculator is a calculator and theme-customization utility. Current
+          features include calculation entry and evaluation, live result preview,
+          cursor editing, calculation history, selectable calculator themes,
+          Automatic (Device), International, and Indian number-format options,
+          optional haptic feedback, and an in-app walkthrough.
         </p>
 
         <p>
-          You can use the core calculator without creating an account, signing in, or
-          providing your name, email address, phone number, or profile information.
-          The app does not provide cloud synchronization of calculation history.
+          The current version does <strong>not</strong> include calculator button
+          sounds. You can use the core calculator without creating an account, signing
+          in, or providing your name, email address, phone number, or profile
+          information. The app does not provide cloud synchronization of calculation
+          history.
         </p>
 
         <div class="notice">
           <strong>Important:</strong> calculations entered into the calculator are
-          processed for calculator functionality. Saved calculation history remains
-          locally on your device unless you delete it, clear the app’s storage, or
-          uninstall the app.
+          processed on the device for calculator functionality. Saved calculation
+          history remains locally on your device unless you delete it, clear the app’s
+          storage, or uninstall the app. The app does not intentionally upload your
+          calculation history to Naladimarth.
         </div>
       </section>
 
@@ -806,7 +812,8 @@
             <h3>Calculation history</h3>
             <p>
               Recent calculation expressions and results. The current app stores up to
-              50 history entries and allows individual or complete history deletion.
+              50 history entries and allows individual entries or the full history to
+              be deleted.
             </p>
           </article>
 
@@ -814,14 +821,24 @@
             <h3>Theme preferences</h3>
             <p>
               The selected calculator theme and the expiry time of any temporary
-              bonus-theme unlock.
+              bonus-theme unlock. A selected bonus theme may remain selected after the
+              temporary unlock period expires.
             </p>
           </article>
 
           <article class="data-card">
-            <h3>Interaction preferences</h3>
+            <h3>Number-format preference</h3>
             <p>
-              Whether optional calculator button sound and haptic feedback are enabled.
+              Your selected display format: Automatic (Device), International, or
+              Indian. When Automatic (Device) is selected, the app uses device locale
+              information on-device to select a supported display format.
+            </p>
+          </article>
+
+          <article class="data-card">
+            <h3>Haptic preference</h3>
+            <p>
+              Whether optional haptic feedback is enabled for calculator interactions.
             </p>
           </article>
 
@@ -832,13 +849,22 @@
               been completed.
             </p>
           </article>
+
+          <article class="data-card">
+            <h3>Legacy local preference</h3>
+            <p>
+              An older installation may still contain an unused button-sound preference
+              written by a previous app version. The current version no longer includes
+              button sound and does not use that legacy value.
+            </p>
+          </article>
         </div>
 
         <p>
-          This locally stored information is used to provide app functionality on your
-          device. Naladimarth does not operate a user account database for this app and
-          does not receive this local calculator history through an app account or cloud
-          synchronization service.
+          These locally stored values are used to provide app functionality on your
+          device. Naladimarth does not operate a user-account database for Themed
+          Calculator and does not receive your local calculation history through an app
+          account or cloud-sync service.
         </p>
 
         <p>
@@ -856,14 +882,16 @@
 
         <p>
           Themed Calculator does not require you to submit account credentials, a user
-          profile, payment-card details, contacts, photos, or other personal content to
-          use its core calculator functions.
+          profile, payment-card details, contacts, photos, files, precise location, or
+          other personal content to Naladimarth in order to use its core calculator
+          functions.
         </p>
 
         <p>
-          The app does not ask you to upload calculation history to Naladimarth. However,
-          limited technical and advertising-related data may be collected or processed
-          automatically by the third-party services described below.
+          The app does not ask you to upload calculation history to Naladimarth.
+          However, limited technical, consent-related, and advertising-related data may
+          be collected, shared, or processed automatically by the third-party services
+          described below.
         </p>
       </section>
 
@@ -878,11 +906,12 @@
         <ul>
           <li>
             <strong>Google AdMob / Google Mobile Ads SDK</strong> for optional rewarded
-            advertisements used to unlock bonus calculator themes.
+            advertisements used for bonus-theme access.
           </li>
           <li>
-            <strong>Google User Messaging Platform (UMP)</strong> for consent status,
-            privacy messages, and privacy-choice controls where required.
+            <strong>Google User Messaging Platform (UMP)</strong> for advertising
+            consent status, privacy messages, and privacy-choice controls where
+            required.
           </li>
           <li>
             <strong>Firebase Crashlytics</strong> for crash reporting and app-stability
@@ -892,8 +921,8 @@
 
         <p>
           These providers may process information under their own privacy policies,
-          terms, technical configurations, and legal obligations. Their practices may
-          change independently of this app.
+          terms, product configurations, and legal obligations. Their practices may
+          change independently of Themed Calculator.
         </p>
 
         <ul>
@@ -934,28 +963,29 @@
         </div>
 
         <p>
-          Themed Calculator uses rewarded ads. A user may choose to watch a rewarded ad
-          to unlock bonus calculator themes for 24 hours. The app’s core calculator and
-          free themes do not require watching a rewarded ad.
+          Themed Calculator uses <strong>optional rewarded ads</strong>. The current
+          theme model provides 4 free themes and 12 bonus themes. A user may choose to
+          watch a rewarded ad to unlock the bonus-theme selection for 24 hours. Core
+          calculator functionality and the free themes do not require watching an ad.
         </p>
 
         <p>
           The Google Mobile Ads SDK may automatically collect and share certain data for
-          advertising, analytics, service operation, and fraud-prevention purposes,
-          including:
+          advertising, analytics, and fraud-prevention purposes, including:
         </p>
 
         <ul>
           <li>
-            IP address, which may be used to estimate a device’s general or approximate
-            location;
+            IP address, which may be used to estimate the device’s general or
+            approximate location;
           </li>
           <li>
-            user product interactions, such as app launches, taps, and rewarded-video
+            user product interactions, such as app launches, taps, and video/ad
             interactions;
           </li>
           <li>
-            diagnostic information relating to the app or advertising SDK; and
+            diagnostic and performance information relating to the app or advertising
+            SDK; and
           </li>
           <li>
             device or account-related identifiers, which may include the Android
@@ -966,13 +996,13 @@
         <p>
           Depending on your region, consent status, device settings, Google settings,
           and ad-serving configuration, ads may be personalized, non-personalized, or
-          otherwise limited. Availability of rewarded ads is not guaranteed.
+          otherwise limited. Rewarded-ad availability is not guaranteed.
         </p>
 
         <p>
           Google states that data collected by the Google Mobile Ads SDK is encrypted in
-          transit. Users may be able to reset or delete the Android advertising ID
-          through Android or Google settings.
+          transit. Android advertising-ID collection and availability are also subject
+          to Android, Google, SDK, and user privacy controls.
         </p>
       </section>
 
@@ -983,21 +1013,21 @@
         </div>
 
         <p>
-          The app uses Google’s User Messaging Platform to request updated consent
-          information and, where required, display a privacy or consent message before
-          requesting an advertisement.
+          The app uses Google’s User Messaging Platform to request or refresh consent
+          information and, where required, display a privacy or consent message in
+          connection with advertising.
         </p>
 
         <p>
-          Where Google indicates that a privacy-options entry point is required, the
-          app displays a <strong>Privacy choices</strong> option in Settings so you can
-          review or modify available advertising privacy choices.
+          Where Google indicates that a privacy-options entry point is required, the app
+          displays a <strong>Privacy choices</strong> option in Settings so you can
+          review or modify the advertising privacy choices made available by Google.
         </p>
 
         <p>
           Consent requirements and available controls may differ according to your
-          country or region. You may also manage advertising settings through your
-          Android device, Google Account, or Google’s advertising controls where
+          country or region. You may also manage applicable advertising settings through
+          your Android device, Google Account, or Google advertising controls where
           available.
         </p>
       </section>
@@ -1010,38 +1040,40 @@
 
         <p>
           The app uses Firebase Crashlytics to detect, group, investigate, and fix
-          crashes and serious stability problems. Crashlytics may process technical data
-          such as:
+          crashes and serious stability problems. Depending on the event and platform,
+          Crashlytics may process technical information such as:
         </p>
 
         <ul>
           <li>crash traces, stack traces, exception types, and exception messages;</li>
           <li>Crashlytics installation identifiers and Firebase installation IDs;</li>
-          <li>random session identifiers and the time of a crash;</li>
+          <li>session identifiers and event/crash timestamps;</li>
           <li>app package name, app version, and build information;</li>
           <li>
-            device model, operating-system version, CPU architecture, memory, and disk
-            information;
+            device model, operating-system version, CPU architecture, memory, disk, and
+            related technical information;
           </li>
           <li>
-            app foreground/background status and other technical circumstances
-            surrounding a crash; and
+            app foreground/background state and technical circumstances surrounding a
+            crash; and
           </li>
           <li>
-            rooted-device status and other diagnostic details made available by the
-            operating system or runtime.
+            other diagnostic details made available by the operating system, runtime, or
+            Firebase SDK.
           </li>
         </ul>
 
         <p>
           This information is used to monitor reliability, investigate defects, prevent
-          repeated failures, and improve the app.
+          repeated failures, and improve app stability.
         </p>
 
         <div class="notice">
-          <strong>Local calculator content:</strong> the app does not intentionally
-          attach your saved calculation history, selected theme, sound preference,
-          haptic preference, or bonus-theme expiry to Crashlytics reports.
+          <strong>Local calculator content:</strong> Themed Calculator does not
+          deliberately add your saved calculation history, selected theme, number-format
+          preference, haptic preference, walkthrough state, or bonus-theme expiry as
+          custom Crashlytics report data. Crashlytics may still receive technical
+          exception and runtime information generated when a failure occurs.
         </div>
       </section>
 
@@ -1056,10 +1088,12 @@
         <ul>
           <li>perform calculations and display results;</li>
           <li>store and restore recent calculation history on your device;</li>
-          <li>remember themes and optional interaction preferences;</li>
+          <li>remember the selected theme and temporary bonus-theme state;</li>
+          <li>remember your number-format and haptic preferences;</li>
+          <li>remember whether the introductory walkthrough has been completed;</li>
           <li>provide and verify temporary bonus-theme unlocks;</li>
           <li>request, display, measure, and protect rewarded advertisements;</li>
-          <li>manage consent and advertising privacy choices;</li>
+          <li>manage advertising consent and privacy choices;</li>
           <li>identify crashes, diagnose defects, and improve app stability;</li>
           <li>protect the app and third-party services against fraud or abuse;</li>
           <li>comply with applicable law, regulation, or valid legal process; and</li>
@@ -1082,8 +1116,8 @@
           Data may be transmitted to or processed by Google and its service providers
           when the app uses AdMob, the User Messaging Platform, or Firebase Crashlytics.
           Advertising data may also be shared or processed within Google’s advertising
-          ecosystem as described in Google’s policies, consent messages, and your
-          available choices.
+          ecosystem as described in Google’s policies, consent messages, SDK disclosures,
+          and your available choices.
         </p>
 
         <p>
@@ -1109,10 +1143,18 @@
         <h3>Local app data</h3>
 
         <p>
-          Calculation history and preferences may remain on your device until you delete
-          them through the app, clear the app’s storage through Android settings, or
-          uninstall the app. The app currently limits stored history to the 50 most
-          recent entries.
+          Calculation history and locally stored preferences may remain on your device
+          until you delete applicable data through the app, clear the app’s storage
+          through Android settings, or uninstall the app. The current app limits stored
+          calculation history to the 50 most recent entries. Expired bonus-theme unlock
+          state is removed by the app when that state is loaded and found to be expired.
+        </p>
+
+        <p>
+          A legacy button-sound preference written by an older version may remain in
+          local app storage after updating. The current version does not use it. Clearing
+          app storage or uninstalling the app removes local app data, subject to Android
+          and device-backup behavior.
         </p>
 
         <h3>Advertising and consent data</h3>
@@ -1125,9 +1167,9 @@
         <h3>Crashlytics data</h3>
 
         <p>
-          Firebase states that Crashlytics generally retains crash stack traces,
-          associated installation identifiers, and extracted crash data for 90 days
-          before beginning removal from live and backup systems.
+          Firebase states that Crashlytics generally keeps crash stack traces, associated
+          installation identifiers, and extracted crash data for 90 days before starting
+          removal from live and backup systems.
         </p>
 
         <p>
@@ -1148,15 +1190,18 @@
         <ul>
           <li>delete individual calculation-history entries;</li>
           <li>clear all calculation history from within the app;</li>
-          <li>disable optional sound or haptic feedback;</li>
+          <li>enable or disable optional haptic feedback;</li>
+          <li>
+            choose Automatic (Device), International, or Indian number formatting;
+          </li>
           <li>
             open <strong>Privacy choices</strong> in Settings when Google indicates that
             this option is required;
           </li>
-          <li>manage advertising controls through Android or Google settings;</li>
+          <li>manage applicable advertising controls through Android or Google settings;</li>
           <li>reset or delete the Android advertising ID where supported;</li>
           <li>clear all app data through Android settings;</li>
-          <li>uninstall the app to remove its locally stored data; and</li>
+          <li>uninstall the app to remove locally stored app data; and</li>
           <li>
             contact Naladimarth to ask a privacy question or exercise an applicable
             privacy right.
@@ -1177,21 +1222,23 @@
         </div>
 
         <p>
-          Themed Calculator is a general-audience utility app and is not directed
-          specifically to children under 13. We do not knowingly ask children to create
-          an account or directly submit personal information to Naladimarth through the
-          app.
+          The Google Play target audience selected for Themed Calculator is
+          <strong>18 years and over</strong>. The app is not directed to children.
+        </p>
+
+        <p>
+          Themed Calculator does not provide child accounts or ask users to submit a
+          name, email address, phone number, profile, or other account information in
+          order to use the calculator. Third-party advertising and diagnostic services
+          may process technical information as described in this policy and under their
+          own policies.
         </p>
 
         <p>
           If you are a parent or guardian and believe a child has provided personal
-          information directly to us, contact Naladimarth so the concern can be reviewed
-          and reasonable action can be taken where appropriate.
-        </p>
-
-        <p>
-          Parents and guardians should supervise children’s device, app, and advertising
-          settings as appropriate.
+          information directly to Naladimarth in connection with Themed Calculator,
+          contact us so the concern can be reviewed and reasonable action can be taken
+          where appropriate.
         </p>
       </section>
 
@@ -1203,9 +1250,9 @@
 
         <p>
           We use reasonable technical and organizational measures intended to support
-          app security and reliability. Google states that Firebase services encrypt
-          data in transit and that Crashlytics data is encrypted at rest. Google also
-          states that Google Mobile Ads SDK data is encrypted in transit.
+          app security and reliability. Google states that data collected by the Google
+          Mobile Ads SDK is encrypted in transit, and Google/Firebase describes security
+          and encryption protections for Firebase services.
         </p>
 
         <p>
@@ -1222,9 +1269,10 @@
         </div>
 
         <p>
-          Google and its service providers may process or store technical and
-          advertising-related data in countries other than the country where you live.
-          Firebase describes Crashlytics as operating on global Google infrastructure.
+          Google and its service providers may process or store technical,
+          consent-related, and advertising-related data in countries other than the
+          country where you live. Firebase services operate on Google infrastructure
+          that may involve international processing.
         </p>
 
         <p>
@@ -1241,9 +1289,9 @@
         </div>
 
         <p>
-          The app may open external websites or applications, including this privacy
-          policy, terms and conditions, Google Play pages, Google privacy controls, and
-          pages for other Naladimarth apps.
+          The app may open external websites or applications, including this Privacy
+          Policy, the Terms and Conditions, Google Play pages, Google privacy controls,
+          and pages for Naladimarth or other Naladimarth apps.
         </p>
 
         <p>
@@ -1262,7 +1310,7 @@
         <p>
           We may update this Privacy Policy when app features, service providers, data
           practices, laws, or regulatory guidance change. The updated policy will be
-          posted on this page with a revised effective date.
+          posted on this page with a revised effective or last-updated date.
         </p>
 
         <p>
