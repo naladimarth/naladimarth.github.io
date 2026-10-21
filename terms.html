@@ -979,7 +979,7 @@
     <div class="badges">
 
 <span class="badge">
-  Last updated: 11 September 2026
+  Last updated: 21 October 2026
 </span>
 
 <span class="badge">
@@ -1027,6 +1027,13 @@
   If you obtain the app through Google Play or another authorised
   distribution platform, that platform's own terms may also apply to your
   use of its store and services.
+</p>
+
+<p style="margin-top: 12px;">
+  App features, privacy controls, and advertising placements may differ by
+  installed version. Where these Terms specifically describe RGB 2.1, that
+  description applies to RGB 2.1 installations; earlier versions may work
+  differently.
 </p>
 
   </section>
@@ -1081,7 +1088,7 @@
       </a>
 
       <a href="#privacy">
-        11. Privacy, Analytics &amp; consent
+        11. Privacy, crash reporting &amp; consent
       </a>
 
       <a href="#feedback">
@@ -1267,6 +1274,7 @@
 
       <ul>
         <li>previewing and selecting screen colours;</li>
+        <li>entering HEX colour values and choosing colour presets where supported;</li>
         <li>using the screen as a coloured or white light source;</li>
         <li>adjusting shade and screen brightness;</li>
         <li>showing fullscreen colours;</li>
@@ -1327,6 +1335,13 @@
           <strong>Full Screen and Fluid Colors:</strong>
           these are visual display modes and are not calibrated professional
           lighting systems;
+        </li>
+
+        <li>
+          <strong>HEX colour controls:</strong>
+          RGB 2.1 allows entry of supported colour values and colour presets.
+          On-screen appearance depends on the device display and its settings;
+          entered colour values do not guarantee calibrated physical output;
         </li>
 
         <li>
@@ -1558,14 +1573,17 @@
 </p>
 
       <p>
-        The current advertising design is an anchored adaptive banner on the
-        normal Home control screen when that screen is eligible to display an
-        ad.
+        In RGB 2.1, eligible Home and HEX control screens share a fixed-size
+        320 × 50 dp banner placement. The separate How to Use screen has its
+        own banner placement. The app is designed to show at most one banner
+        at a time and may withhold advertising when there is insufficient
+        safe screen space. Earlier versions may use different placements or
+        banner sizes.
       </p>
 
       <p>
-        The app is designed not to display the banner in functional
-        clean-display modes or relevant modal/privacy flows, including:
+        Banners are not intended to appear in clean-display modes or
+        interruptive dialog and privacy flows, including:
       </p>
 
       <ul>
@@ -1575,9 +1593,8 @@
         <li>Fluid Colors;</li>
         <li>Strobe mode;</li>
         <li>locked clean-display mode;</li>
-        <li>Quick Guide and How to Use;</li>
-        <li>feedback flows;</li>
-        <li>Improve Experience / Usage Analytics settings;</li>
+        <li>the first-run or manually opened Quick Guide dialog (separate from the How to Use screen);</li>
+        <li>feedback and other modal dialogs;</li>
         <li>Google UMP consent or Ad privacy choices screens.</li>
       </ul>
 
@@ -1613,36 +1630,40 @@
       id="privacy"
     >
 
-      <h2>11. Privacy, Analytics, Crash Reporting, and Consent</h2>
+      <h2>11. Privacy, Crash Reporting, Earlier Usage Analytics, and Consent</h2>
 
 <p>
   The app uses the following third-party services:
 </p>
 
 <ul>
-  <li>Firebase Crashlytics;</li>
-  <li>Google Analytics for Firebase, when optional Usage Analytics is enabled;</li>
-  <li>Google AdMob;</li>
-  <li>Google User Messaging Platform (UMP).</li>
+  <li>Firebase Crashlytics for crash diagnostics;</li>
+  <li>Google AdMob for advertising and related measurement;</li>
+  <li>Google User Messaging Platform (UMP) for applicable advertising privacy choices.</li>
 </ul>
 
       <p>
-        Usage Analytics is optional and is designed to remain
-        <strong>OFF by default</strong>. It is enabled only if you choose to
-        enable <strong>Share usage analytics</strong> from
-        <strong>Improve Experience</strong>.
+        <strong>RGB 2.1 no longer includes optional Google Analytics for
+        Firebase usage monitoring or custom usage-event logging.</strong>
+        Certain earlier app versions offered an optional
+        <strong>Improve Experience</strong> setting for
+        <strong>Share usage analytics</strong>, which was off by default.
+        Users of those versions may still have that setting until they update.
       </p>
 
       <p>
-        Crashlytics is used for crash diagnostics and is separate from the
-        optional Usage Analytics setting.
+        Firebase Crashlytics continues to help diagnose crashes and technical
+        failures. Its operation is separate from optional usage analytics in
+        earlier app versions.
       </p>
 
       <p>
         Advertising-related consent and privacy choices may be handled through
-        Google UMP and Google Privacy &amp; messaging. Advertising privacy
-        choices and the app's optional Usage Analytics preference are separate
-        mechanisms.
+        Google UMP and Google Privacy &amp; messaging. Google AdMob may process
+        ad and app interaction information for advertising, measurement,
+        security, and fraud prevention even when optional Firebase usage
+        analytics is absent or disabled, subject to applicable privacy choices
+        and law.
       </p>
 
       <p>
@@ -1654,8 +1675,8 @@
       <p>
         The Privacy Policy explains the app's data practices, advertising
         disclosures, EEA/UK/Switzerland information, U.S. state privacy
-        information, retention, permissions, and privacy-request mechanisms in
-        more detail.
+        information, retention, permissions, applicable privacy rights, and
+        contact information in more detail.
       </p>
 
 <a
@@ -1878,7 +1899,7 @@
 
         <li>
           bypass, interfere with, manipulate, or fraudulently interact with
-          advertising, consent, Analytics, security, or platform systems;
+          advertising, consent, crash-reporting, security, or platform systems;
         </li>
 
         <li>
