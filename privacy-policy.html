@@ -786,10 +786,10 @@
     </p>
 
     <div class="badges">
-<span class="badge">Last updated: 11 September 2026</span>
+<span class="badge">Last updated: 21 October 2026</span>
 <span class="badge">Target audience: 18+</span>
       <span class="badge">No account required</span>
-      <span class="badge">Usage Analytics off by default</span>
+      <span class="badge">Core features work locally</span>
       <span class="badge">Ad privacy choices where applicable</span>
     </div>
 
@@ -811,14 +811,21 @@
 <p style="margin-top: 12px;">
   Most screen-light, colour-control, display-testing, and fullscreen functions
   work locally on your device. The app also uses selected Google services for
-  crash diagnostics, optional usage analytics, advertising, and advertising
-  privacy/consent management as described in this Policy.
+  crash diagnostics, advertising, and advertising privacy/consent management.
+  Earlier app versions may additionally provide optional usage analytics,
+  as explained in Section 3.
 </p>
 
 <p style="margin-top: 12px;">
   This Policy applies to this app. It does not automatically apply to other
   Naladimarth apps, external websites, your email provider, Google, or other
   third-party services, which may have their own privacy terms and policies.
+</p>
+
+<p style="margin-top: 12px;">
+  App versions may coexist during an update rollout. If a privacy practice or
+  feature differs between earlier installations and RGB 2.1, this Policy
+  identifies that distinction where relevant.
 </p>
 
   </section>
@@ -831,7 +838,7 @@
 
       <a href="#local-data">1. Core app use &amp; local data</a>
       <a href="#crash-reporting">2. Crash reporting</a>
-      <a href="#analytics">3. Optional usage analytics</a>
+      <a href="#analytics">3. Usage analytics in earlier versions</a>
 
       <a href="#advertising">4. Advertising</a>
       <a href="#consent">5. Consent &amp; ad privacy choices</a>
@@ -872,9 +879,9 @@
 
       <p>
         Core features such as the Preview Box, Hue Wheel, Shade control,
-        Strobe, Auto Color, Brightness control, Pixel Check, White, Full
-        Screen, Fluid Colors, and Lock are designed to operate locally on your
-        device.
+        Strobe, Auto Color, Brightness control, HEX colour input and presets,
+         Pixel Check, White, Full Screen, Fluid Colors, and Lock are designed
+         to operate locally on your device.
       </p>
 
       <p>
@@ -886,8 +893,10 @@
       <p>
         Certain preferences and choices may be stored locally on your device so
         the app can remember them between sessions. These may include app
-        settings, brightness-related preferences, first-use or guide state,
-        safety acknowledgements, and your optional Usage Analytics choice.
+        settings, language, brightness-related preferences, first-use or guide
+         state, safety acknowledgements, and limited on-device promotional
+         display counters. Older installations may also store an optional
+         usage-analytics preference.
       </p>
 
       <p>
@@ -897,9 +906,10 @@
 
       <p>
         Network access is used by third-party services described in this
-        Policy, including Firebase Crashlytics, optional Google Analytics for
-        Firebase, Google AdMob, Google User Messaging Platform (UMP), external
-        links, and email functionality.
+        Policy, including Firebase Crashlytics, Google AdMob, Google User
+         Messaging Platform (UMP), external links, and user-initiated email
+         functionality. Earlier versions may also use optional Google Analytics
+         for Firebase as described in Section 3.
       </p>
 
     </section>
@@ -920,9 +930,11 @@
       <div class="highlight">
         <p>
           <strong>
-            Crashlytics is separate from the optional Usage Analytics setting.
-          </strong>
-          Turning Usage Analytics off does not turn Crashlytics off.
+            Crash reporting is independent of optional usage analytics in
+             earlier app versions.
+           </strong>
+           Removing or disabling optional usage analytics does not automatically
+           turn off Firebase Crashlytics.
         </p>
       </div>
 
@@ -960,114 +972,49 @@
       class="policy-section"
       id="analytics"
     >
-
-      <h2>3. Optional Usage Analytics</h2>
+      <h2>3. Usage Analytics in Earlier App Versions</h2>
 
       <div class="highlight">
         <p>
-          <strong>Usage Analytics is optional and OFF by default.</strong>
-          There is no first-run Analytics consent popup. Analytics is enabled
-          only if you open <strong>Improve Experience</strong> in the app and
-          choose to enable <strong>Share usage analytics</strong>.
+          <strong>Optional usage monitoring has been removed from RGB 2.1.</strong>
+          This is separate from advertising measurement performed by Google
+          AdMob and technical crash reporting performed by Firebase Crashlytics.
         </p>
       </div>
 
       <p>
-        The app includes <strong>Google Analytics for Firebase</strong> to help
-        Naladimarth understand aggregate feature usage and improve the app.
+        Some earlier app versions include an optional <strong>Improve
+        Experience</strong> setting for <strong>Google Analytics for Firebase</strong>.
+        That optional feature was off by default and could be enabled by choosing
+        <strong>Share usage analytics</strong>. Users with an older version may
+        still have this control until they update their app.
       </p>
 
       <p>
-        When Usage Analytics is enabled, Google Analytics for Firebase may
-        process standard automatically collected Analytics information such as
-        app/session engagement, app and operating-system information, device
-        characteristics, approximate geographic information, automatically
-        collected events/properties, and app-installation or Analytics
-        identifiers.
+        When enabled in an older version, Firebase Analytics may process
+        app and session activity, device and operating-system information,
+        approximate geographic information, app-installation identifiers,
+        and limited event categories describing control, mode, guide, menu,
+        or feedback interactions. The custom event design was not intended
+        to include entered feedback text, personal contact details, or
+        precise colour and control values.
       </p>
 
       <p>
-        The app also sends a limited set of custom event categories when
-        Analytics is enabled. These indicate which type of control, mode,
-        guide, menu item, or feedback action was used. Examples include:
-      </p>
-
-      <ul>
-        <li>
-          Control categories such as Hue Wheel, Shade, Brightness, Strobe
-          speed, and Auto Color speed
-        </li>
-
-        <li>
-          Mode categories such as Full Screen, White, Fluid Colors, Lock,
-          Pixel Check, Strobe, and Auto Color
-        </li>
-
-        <li>
-          Quick Guide and How to Use actions such as opened, completed, or
-          skipped
-        </li>
-
-        <li>
-          Menu categories such as Report a bug, Request a feature, Rate us,
-          More apps, Privacy Policy, Terms, and About
-        </li>
-
-        <li>
-          Feedback-flow categories such as disclosure shown, accepted,
-          cancelled, email composer opened, or composer failed
-        </li>
-      </ul>
-
-      <p>
-        The app's custom Analytics implementation is designed not to send:
-      </p>
-
-      <ul>
-        <li>Your name, email address, or phone number</li>
-        <li>User-entered free text</li>
-        <li>Device serial numbers</li>
-        <li>Raw advertising-consent strings</li>
-
-        <li>
-          Exact RGB, hue, brightness, strobe-speed, or Auto Color values from
-          normal control interactions
-        </li>
-
-        <li>
-          Files, photos, contacts, camera content, microphone recordings, or
-          precise GPS location
-        </li>
-      </ul>
-
-      <p>
-        Firebase Analytics Advertising ID collection is disabled in the app's
-        Android Analytics configuration.
+        RGB 2.1 does not include the optional Firebase Analytics feature
+        or its custom usage-event logging. Disabling it in an older version
+        stops future collection through that optional feature, but does not
+        necessarily erase information previously processed or aggregated.
+        Google's retention practices and applicable privacy rights may
+        still apply to earlier records.
       </p>
 
       <p>
-        Analytics ad-personalisation signals are also disabled by default in
-        the app's Analytics configuration.
+        This change does not disable automatic data collection by the
+        <strong>Google Mobile Ads SDK</strong> for advertising, measurement,
+        security, or fraud prevention, nor does it disable Firebase Crashlytics.
+        Those services are explained in Sections 2, 4 and 5.
       </p>
-
-      <p>
-        You can turn Usage Analytics off again at any time from
-        <strong>Improve Experience</strong>. Turning it off stops future
-        Analytics collection by the app on that installation. It does not
-        necessarily erase information that was already processed or aggregated
-        before the setting was disabled.
-      </p>
-
-      <div class="highlight">
-        <p>
-          <strong>
-            Advertising privacy choices and Usage Analytics are separate.
-          </strong>
-          A choice made in Google's advertising consent or privacy message does
-          not automatically enable the app's optional Usage Analytics setting.
-        </p>
-      </div>
-
     </section>
 
     <section
@@ -1084,14 +1031,18 @@
       </p>
 
       <p>
-        The app is designed to show at most one anchored adaptive banner on the
-        normal Home control screen when the Home screen is eligible to display
-        an ad.
+        In RGB 2.1, eligible control screens may display a fixed-size
+         <strong>320 × 50 dp</strong> banner. Home and HEX share one banner
+         placement, while the separate <strong>How to Use</strong> screen has
+         its own banner placement. The app is designed to display at most one
+         banner at a time. On narrow or short screens, a banner may be withheld
+         when there is not sufficient safe space. Older app versions may have
+         different banner placements and sizes.
       </p>
 
       <p>
-        The banner is designed not to appear in functional clean-display modes
-        or modal/privacy flows, including:
+        Banners are not intended to appear in clean-display modes or
+         interruptive dialog and privacy flows, including:
       </p>
 
       <ul>
@@ -1101,10 +1052,9 @@
         <li>Fluid Colors</li>
         <li>Strobe mode</li>
         <li>Locked clean-display mode</li>
-        <li>Quick Guide and How to Use</li>
-        <li>Feedback flows</li>
-        <li>Improve Experience / Usage Analytics settings</li>
-        <li>UMP consent or Ad privacy choices screens</li>
+        <li>First-run or manually opened Quick Guide dialog (distinct from the How to Use screen)</li>
+         <li>Feedback and other modal dialogs</li>
+         <li>UMP consent or Ad privacy choices screens</li>
       </ul>
 
 <p>
@@ -1259,7 +1209,9 @@
 
       <p>
         Advertising choices handled through UMP remain separate from the
-        optional Usage Analytics setting described in Section 3.
+         retired optional usage-monitoring feature described in Section 3.
+         AdMob may still process advertising-related interaction data under
+         applicable choices and laws.
       </p>
 
     </section>
@@ -1287,9 +1239,10 @@
 
       <ul>
         <li>
-          <strong>Consent</strong> — for optional Usage Analytics and for
-          advertising-related storage, personalisation, or processing where
-          consent is required and obtained
+          <strong>Consent</strong> — for advertising-related storage,
+           personalisation, or processing where consent is required and
+           obtained, and for optional usage analytics in earlier app versions
+           where it was expressly enabled
         </li>
 
         <li>
@@ -1377,15 +1330,16 @@
         </li>
 
         <li>
-          <strong>Internet or electronic activity</strong> — app/session
-          activity, feature interactions when optional Analytics is enabled,
-          ad views/taps, and related product interactions
+          <strong>Internet or electronic activity</strong> — ad views/taps,
+           app launches and related interactions processed by advertising
+           services, and optional feature-use events in earlier app versions
+           when the user enabled that feature
         </li>
 
         <li>
           <strong>Approximate geolocation</strong> — general location inferred
-          from an IP address by services such as advertising or Analytics; the
-          app does not request precise GPS location
+          from an IP address by advertising services (or optional Analytics
+           in earlier versions); the app does not request precise GPS location
         </li>
 
         <li>
@@ -1419,9 +1373,10 @@
 
       <p>
         The purposes include providing and maintaining app functionality,
-        diagnosing crashes, security and fraud prevention, measuring optional
-        usage, serving and measuring advertising, complying with privacy
-        choices, and responding to support requests.
+        diagnosing crashes, security and fraud prevention, serving and
+         measuring advertising, complying with privacy choices, responding
+         to support requests, and, in earlier versions only, measuring
+         voluntarily enabled optional usage analytics.
       </p>
 
       <h3>Disclosure and advertising</h3>
@@ -1578,10 +1533,10 @@
       </p>
 
       <p>
-        Firebase Analytics information, when you have enabled Usage Analytics,
-        is retained according to the applicable Google/Firebase Analytics
-        property settings, product configuration, policies, and legal
-        requirements.
+        Where optional Firebase Analytics was enabled in an earlier version,
+         previously collected data may remain subject to the applicable Google
+         Analytics property settings, retention periods, policies, and legal
+         requirements, even after the feature has been removed.
       </p>
 
       <p>
@@ -1591,9 +1546,9 @@
       </p>
 
       <p>
-        Turning Usage Analytics off stops future Analytics collection by the
-        app on that installation but does not necessarily delete information
-        that was already processed or aggregated.
+        RGB 2.1 does not send the retired custom Firebase Analytics usage
+         events. This does not affect AdMob's own measurement or erase
+         previously processed data from older app installations.
       </p>
 
       <p>
@@ -1609,21 +1564,29 @@
       </p>
 
 <p>
-  You may contact Naladimarth to request deletion of support emails or
-  other information that Naladimarth directly controls and can reasonably
-  identify from your request. Contact
-  <a href="mailto:support@naladimarth.com">
-    support@naladimarth.com
-  </a>.
+  RGB does not offer user accounts or a general-purpose user-data deletion
+  request feature. Naladimarth does not maintain a central user-profile
+  database for the app's core functionality. You can clear locally stored
+  app preferences through Android app settings or by uninstalling the app,
+  subject to Android backup and restore behaviour.
 </p>
 
 <p>
-  This request mechanism does not mean that Naladimarth can identify,
-  retrieve, or directly delete all information processed by Google AdMob,
-  UMP, Firebase Analytics, or Firebase Crashlytics. Some Google-managed
-  information is associated with pseudonymous installation, advertising,
-  or service identifiers and is subject to Google's own controls,
-  retention practices, contractual terms, and applicable law.
+  If you have questions about information Naladimarth handles directly,
+  such as correspondence you voluntarily emailed, or wish to exercise
+  privacy rights that apply under the law where you live, contact
+  <a href="mailto:support@naladimarth.com">
+    support@naladimarth.com
+  </a>. Applicable requests are reviewed according to the law and the
+  information Naladimarth can reasonably identify and control.
+</p>
+
+<p>
+  Clearing local app data or uninstalling the app does not necessarily
+  delete information already processed by Google AdMob, UMP, Firebase
+  Crashlytics, or optional Firebase Analytics integrations in earlier
+  versions. Such information is subject to Google's applicable controls,
+  retention practices, contractual terms, and legal obligations.
 </p>
 
     </section>
@@ -1709,10 +1672,11 @@
       </p>
 
       <p>
-        Firebase Analytics Advertising ID collection is separately disabled in
-        the app's Analytics configuration. That Analytics setting does not
-        prevent the Google Mobile Ads SDK from using the Advertising ID for
-        advertising where allowed.
+        Earlier versions may have disabled Advertising ID collection for
+         Firebase Analytics separately. RGB 2.1 does not include the optional
+         Firebase Analytics integration. These decisions do not prevent the
+         Google Mobile Ads SDK from using the Advertising ID for advertising
+         where allowed.
       </p>
 
     </section>
@@ -1735,8 +1699,9 @@
 
       <p>
         Third-party services used by the app may process technical,
-        diagnostic, analytics, consent, or advertising information as described
-        in this Policy.
+        diagnostic, consent, or advertising information, including advertising
+         measurement, as described in this Policy. Earlier versions may also
+         process optional usage analytics when enabled.
       </p>
 
       <p>
