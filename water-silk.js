@@ -12,6 +12,8 @@ let last = 0;
 let elapsed = 0;
 let failed = false;
 
+const title = document.querySelector('.hero-title');
+
 function updateControl() {
   const label = paused ? 'Play animation' : 'Pause animation';
   motion.textContent = label;
@@ -40,7 +42,7 @@ function frame(now) {
     const dt = Math.min((now - last) / 1000, 0.04);
     elapsed += dt;
     try {
-      if (renderer(dt, elapsed)) page.classList.add('animated');
+      if (renderer.step(dt, elapsed)) page.classList.add('animated');
     } catch {
       stopRenderer();
       return;
@@ -54,7 +56,11 @@ function sync() {
   cancelAnimationFrame(handle);
   handle = 0;
   updateControl();
-  if (failed || paused || document.hidden) return;
+  if (failed || document.hidden) return;
+  if (paused) {
+    renderer?.paint(elapsed);
+    return;
+  }
   last = performance.now();
   handle = requestAnimationFrame(frame);
 }
@@ -97,7 +103,7 @@ const prefix=`#version 300 es
 precision highp float;precision highp sampler2D;in vec2 uv;out vec4 frag;
 `;
 
-function program(fragment) {
+function program(fragment, vertexSource = vertex) {
   function shader(type, code) {
     const result = gl.createShader(type);
     gl.shaderSource(result, code);
@@ -105,7 +111,7 @@ function program(fragment) {
     return result;
   }
   const result = gl.createProgram();
-  gl.attachShader(result, shader(gl.VERTEX_SHADER, vertex));
+  gl.attachShader(result, shader(gl.VERTEX_SHADER, vertexSource));
   gl.attachShader(result, shader(gl.FRAGMENT_SHADER, prefix + fragment));
   gl.linkProgram(result);
   linking.push(result);
@@ -120,6 +126,9 @@ const pressureP=program(`uniform sampler2D pressure;uniform sampler2D divergence
 const gradientP=program(`uniform sampler2D pressure;uniform sampler2D velocity;uniform vec2 texel;void main(){float l=texture(pressure,uv-vec2(texel.x,0)).x;float r=texture(pressure,uv+vec2(texel.x,0)).x;float b=texture(pressure,uv-vec2(0,texel.y)).x;float t=texture(pressure,uv+vec2(0,texel.y)).x;frag=vec4(texture(velocity,uv).xy-vec2(r-l,t-b),0,1);}`);
 const clearP=program(`uniform sampler2D source;void main(){frag=texture(source,uv)*.75;}`);
 const display=program(`uniform sampler2D dye;uniform vec2 dyeTexel;uniform float time;
+uniform sampler2D lettering;
+uniform vec2 titleCenter, titleScale, inkCenter;
+in vec2 screenUV;
 vec3 spectrum(float h){vec3 p=abs(fract(vec3(h)+vec3(0.,.666667,.333333))*6.-3.);return mix(vec3(1.),clamp(p-1.,0.,1.),.94);}
 float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 void main(){
@@ -179,10 +188,27 @@ void main(){
   float visibility=smoothstep(.03,.7,intensity)*(.35+seed*.65)+.045;
   col+=(flake*.64+dust*.65)*visibility*flicker*mix(pearl,vec3(.93,.98,1.),.72);
  }
+ // Refract the complete lettering mask using the preview's water field.
+ float mask=0.;
+ if(titleScale.x>0.){
+   vec2 wave=vec2(sin(uv.y*8.+time*.5),cos(uv.x*8.-time*.5));
+   vec2 textUV=(screenUV-titleCenter)*titleScale+inkCenter;
+   textUV+=wave*.006*min(intensity+.35,2.)+clamp(slope,vec2(-1.),vec2(1.))*.0012;
+   mask=texture(lettering,textUV).a;
+ }
  col*=1.-.18*pow(length((uv-.5)*vec2(1.,.65)),1.4);
  float grain=fract(sin(dot(gl_FragCoord.xy,vec2(12.9898,78.233)))*43758.5453);
  col+=(grain-.5)*.007;
- frag=vec4(col,1.);
+ frag=vec4(mix(col,vec3(1.),mask),1.);
+}`, `#version 300 es
+in vec2 a;
+uniform vec2 visibleScene;
+out vec2 uv;
+out vec2 screenUV;
+void main() {
+  screenUV = .5 + .5 * a;
+  uv = .5 + .5 * a * visibleScene;
+  gl_Position = vec4(a, 0., 1.);
 }`);
 
   const vao = gl.createVertexArray();
@@ -198,6 +224,36 @@ void main(){
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
     return result;
   }
+  // Use the original preview's 1280 × 720 lettering coordinates and type size.
+  // A transparent pixel is sufficient on the privacy page.
+  const lettering = { tex: texture(gl.LINEAR) };
+  const maskCanvas = document.createElement('canvas');
+  let referenceFont = 170;
+  let inkCenter = [.5, .5];
+  if (title) {
+    const density = gl.getParameter(gl.MAX_TEXTURE_SIZE) >= 2560 ? 2 : 1;
+    maskCanvas.width = 1280 * density;
+    maskCanvas.height = 720 * density;
+    const ctx = maskCanvas.getContext('2d');
+    ctx.scale(density, density);
+    const word = title.textContent.trim().toUpperCase();
+    const family = getComputedStyle(title).fontFamily;
+    ctx.font = `700 ${referenceFont}px ${family}`;
+    while (ctx.measureText(word).width > 960) {
+      ctx.font = `700 ${--referenceFont}px ${family}`;
+    }
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#fff';
+    const metrics = ctx.measureText(word);
+    const inkHeightAboveCenter = (metrics.actualBoundingBoxAscent - metrics.actualBoundingBoxDescent) / 2;
+    inkCenter = [.5, 1 - (370 - inkHeightAboveCenter) / 720];
+    ctx.fillText(word, 640, 370);
+  } else {
+    maskCanvas.width = maskCanvas.height = 1;
+  }
+  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, maskCanvas);
+  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
   function target(w, h, filter = gl.LINEAR) {
     const tex = texture(filter);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA16F, w, h, 0, gl.RGBA, gl.HALF_FLOAT, null);
@@ -240,18 +296,45 @@ void main(){
     gl.viewport(0, 0, output?.w ?? canvas.width, output?.h ?? canvas.height);
     gl.drawArrays(gl.TRIANGLES, 0, 6);
   }
+  // Sample a centered crop of the simulation at its native proportions.
+  const sceneAspect = dw / dh;
+  let visibleScene = [1, 1];
+  let pointer = null, previous = null;
+  let ready = false;
+  let cssFontScale = 1;
+  function paint(time) {
+    if (!ready) return;
+    let titleCenter = [0, 0], titleScale = [0, 0];
+    if (title && !paused) {
+      const rect = title.getBoundingClientRect();
+      const bounds = field.getBoundingClientRect();
+      if (rect.bottom > bounds.top && rect.top < bounds.bottom) {
+        titleCenter = [(rect.left + rect.width / 2 - bounds.left) / bounds.width,
+          1 - (rect.top + rect.height / 2 - bounds.top) / bounds.height];
+        titleScale = [bounds.width / (1280 * cssFontScale), bounds.height / (720 * cssFontScale)];
+      }
+    }
+    draw(display, null, { dye: dye.read, dyeTexel: [1/dw,1/dh], visibleScene,
+      lettering, inkCenter, titleCenter, titleScale, time });
+  }
   function resize() {
     const bounds = field.getBoundingClientRect();
-    const scale = Math.min(devicePixelRatio, 1.5, 1920 / bounds.width);
+    if (!bounds.width || !bounds.height) return;
+    const aspect = bounds.width / bounds.height;
+    visibleScene = [Math.min(1, aspect / sceneAspect), Math.min(1, sceneAspect / aspect)];
+    pointer = previous = null;
+    if (title) cssFontScale = parseFloat(getComputedStyle(title).fontSize) / referenceFont;
+    const scale = Math.min(devicePixelRatio, 1.5, 1920 / Math.max(bounds.width, bounds.height));
     canvas.width = Math.round(bounds.width * scale);
     canvas.height = Math.round(bounds.height * scale);
+    if (paused) paint(elapsed);
   }
   resize();
   new ResizeObserver(resize).observe(field);
   function inject(x, y, dx, dy, color, radius) {
-    draw(splat, velocity.write, { source: velocity.read, point: [x, y], color: [dx, dy, 0], radius, aspect: 16/9 });
+    draw(splat, velocity.write, { source: velocity.read, point: [x, y], color: [dx, dy, 0], radius, aspect: sceneAspect });
     velocity.swap();
-    draw(splat, dye.write, { source: dye.read, point: [x, y], color, radius: radius * .68, aspect: 16/9 });
+    draw(splat, dye.write, { source: dye.read, point: [x, y], color, radius: radius * .68, aspect: sceneAspect });
     dye.swap();
   }
   const palette = [[.03,.72,.8],[.06,.26,.95],[.47,.12,.9],[.83,.12,.48],[.9,.46,.12],[.03,.72,.8]];
@@ -261,23 +344,29 @@ void main(){
     return palette[i].map((v, j) => (v * (1-f) + palette[i+1][j] * f) * amount);
   }
   const streams = [];
-  let pointer = null, previous = null;
   window.addEventListener('pointermove', event => {
     const rect = field.getBoundingClientRect();
-    pointer = { x: (event.clientX - rect.left) / rect.width, y: 1 - (event.clientY - rect.top) / rect.height };
+    const x = (event.clientX - rect.left) / rect.width;
+    const y = 1 - (event.clientY - rect.top) / rect.height;
+    pointer = {
+      x: .5 + (x - .5) * visibleScene[0],
+      y: .5 + (y - .5) * visibleScene[1],
+      radius: event.pointerType === 'mouse' ? .006 : .003
+    };
   });
   window.addEventListener('pointerleave', () => { pointer = previous = null; });
   const texel = [1/sw, 1/sh];
-  return function render(dt, t) {
+  function step(dt, t) {
     if (linking.length) {
       if (compiler && linking.some(p => !gl.getProgramParameter(p, compiler.COMPLETION_STATUS_KHR))) return false;
       for (const p of linking) {
         if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw Error(gl.getProgramInfoLog(p));
       }
       linking.length = 0;
+      ready = true;
     }
     if (pointer && previous && pointer !== previous) {
-      inject(pointer.x, pointer.y, (pointer.x-previous.x)*sw*5, (pointer.y-previous.y)*sh*5, rainbow(t*.09,.7), .003);
+      inject(pointer.x, pointer.y, (pointer.x-previous.x)*sw*5, (pointer.y-previous.y)*sh*5, rainbow(t*.09,.7), pointer.radius);
     }
     previous = pointer;
     for (let j = 0; j < 3; j++) {
@@ -304,7 +393,8 @@ void main(){
     velocity.swap();
     draw(advect, dye.write, { velocity: velocity.read, source: dye.read, texel, dt, decay: Math.exp(-dt*.86) });
     dye.swap();
-    draw(display, null, { dye: dye.read, dyeTexel: [1/dw,1/dh], time: t });
+    paint(t);
     return true;
-  };
+  }
+  return { step, paint };
 }
