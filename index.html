@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#040507">
-  <meta name="description" content="Explore Naladimarth’s financial calculators, Android apps and screen utilities.">
+  <meta name="description" content="Explore Naladimarth’s free browser tools, financial calculators, planners and Android apps.">
   <title>Naladimarth — Crafted with intent</title>
   <script>
     if (!location.hash && !matchMedia('(prefers-reduced-motion: reduce)').matches &&
@@ -23,7 +23,7 @@
   <header class="hero" id="home">
     <div class="topbar">
       <a class="brand" href="https://naladimarth.com/">Naladimarth</a>
-      <nav aria-label="Main navigation"><a href="#finance">Finance</a><a href="#apps">Our apps</a><a href="#contact">Contact</a></nav>
+      <nav aria-label="Main navigation"><a href="#tools">Tools</a><a href="#finance">Finance</a><a href="#apps">Our apps</a><a href="#contact">Contact</a></nav>
     </div>
     <img class="hero-still" src="assets/hero/water-silk.webp" width="1600" height="900" alt="" fetchpriority="high">
     <div class="hero-intro">
@@ -31,26 +31,44 @@
       <div class="hero-copy">
         <p>Crafted with intent</p>
         <a class="hero-link" href="#products">Explore products</a>
+        <p class="account-note">Use our web tools and Android apps without signing in.</p>
       </div>
     </div>
-    <a class="scroll-cue" href="#finance" aria-label="Scroll down to Finance Calculators">
+    <a class="scroll-cue" href="#life-off-record" aria-label="Scroll down to Life Off Record">
       <span aria-hidden="true">↓</span>
     </a>
   </header>
 
   <main id="products">
+    <section id="life-off-record" class="section game" aria-labelledby="game-title">
+      <h2 id="game-title" class="sr-only">Life Off Record</h2>
+      <picture class="wrap panel game-poster">
+        <source media="(max-width: 720px)" srcset="assets/products/life-off-record/poster-phone.webp" width="1122" height="1402">
+        <img src="assets/products/life-off-record/poster-wide.webp" width="1983" height="793" loading="lazy" decoding="async" alt="LOR — Life Off Record. Coming soon.">
+      </picture>
+    </section>
+
+    <section id="tools" class="section tools" aria-labelledby="tools-title">
+      <div class="wrap panel web-product">
+        <div>
+          <p class="kicker">Tools on the web</p>
+          <h2 id="tools-title">Naladimarth Tools</h2>
+          <p class="description">Compress photos, merge PDFs, build a resume, or edit audio with 156 free tools that run in your browser. Your files stay on your device. No sign-in required.</p>
+          <a class="button" href="https://tools.naladimarth.com/">Explore tools</a>
+        </div>
+        <img class="product-art" src="assets/products/web/toolbox.webp" width="550" height="406" loading="lazy" decoding="async" alt="">
+      </div>
+    </section>
+
     <section id="finance" class="section finance" aria-labelledby="finance-title">
-      <div class="wrap panel finance-grid">
+      <div class="wrap panel web-product">
         <div>
           <p class="kicker">Finance on the web</p>
-          <h2 id="finance-title">Finance <br>Calculators</h2>
-          <p class="description">Explore what a different monthly investment, loan term or retirement date could mean for your finances.</p>
-          <a class="button" href="https://finance.naladimarth.com/" id="finance-link">Browse calculators</a>
+          <h2 id="finance-title">Finance Calculators</h2>
+          <p class="description">Explore 1,401 financial calculators and 5 planners in your browser. See how a larger monthly investment, a shorter loan term, or an earlier retirement date could change your plans. No sign-in required.</p>
+          <a class="button" href="https://finance.naladimarth.com/" id="finance-link">Explore Calculators</a>
         </div>
-        <div class="finance-counts">
-          <p><strong>1,401</strong> financial calculators</p>
-          <p><strong>5</strong> planners</p>
-        </div>
+        <img class="product-art" src="assets/products/web/finance-calculator.webp" width="900" height="600" loading="lazy" decoding="async" alt="">
       </div>
     </section>
 
@@ -61,8 +79,10 @@
           <div class="app-copy">
             <div class="category"><img class="app-icon" src="assets/products/rgb-screen/icon.png" width="38" height="38" alt="" loading="lazy">Screen utility</div>
             <h3 id="rgb-title">RGB Screen &amp; <br>Pixel Check</h3>
-            <p class="description">Turn your display into a full-screen colour light. Pick a shade with the hue wheel or enter a hex code, then adjust the brightness.</p>
-            <a class="button" href="https://play.google.com/store/apps/details?id=com.naladimarth.pixelcheck" aria-label="Get RGB Screen and Pixel Check on Google Play">Get it on Google Play</a>
+            <p class="description">Turn your phone or tablet screen into a colour lamp. Choose a precise shade with a HEX code, blend moving colours for ambient light, or check for stuck and dead pixels with six solid-colour tests. No sign-in required.</p>
+            <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.naladimarth.pixelcheck" aria-label="Get RGB Screen and Pixel Check on Google Play">
+              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="646" height="250" loading="lazy" decoding="async" alt="Get it on Google Play">
+            </a>
           </div>
           <div class="app-stage" role="group" aria-label="RGB Screen &amp; Pixel Check screenshots">
             <div class="phone-frame"><img src="assets/products/rgb-screen/hue-wheel.webp" width="800" height="1610" loading="lazy" decoding="async" alt="RGB Screen hue wheel with red selected and brightness controls"></div>
@@ -73,8 +93,10 @@
           <div class="app-copy">
             <div class="category"><img class="app-icon" src="assets/products/themed-calculator/icon.png" width="38" height="38" alt="" loading="lazy">Calculator &amp; converter</div>
             <h3 id="themed-title">Themed <br>Calculator</h3>
-            <p class="description">Choose from 24 themes or build your own with colours, fonts and photos. Switch to scientific mode, graph a function or find a calculation in your history.</p>
-            <a class="button" href="https://play.google.com/store/apps/details?id=com.naladimarth.nala_calculator" aria-label="Get Themed Calculator on Google Play">Get it on Google Play</a>
+            <p class="description">Choose from 24 themes or design your own with custom colours, fonts, and photos. Do everyday maths offline, graph functions, convert units, and search past calculations. No sign-in required.</p>
+            <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.naladimarth.nala_calculator" aria-label="Get Themed Calculator on Google Play">
+              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="646" height="250" loading="lazy" decoding="async" alt="Get it on Google Play">
+            </a>
           </div>
           <div class="app-stage" role="group" aria-label="Themed Calculator screenshots">
             <div class="phone-frame"><img src="assets/products/themed-calculator/ruby-rill.webp" width="800" height="1610" loading="lazy" decoding="async" alt="Ruby Rill calculator with ruby keys and the result 579"></div>
@@ -84,9 +106,11 @@
         <article class="panel app planner" id="money-planner" aria-labelledby="planner-title">
           <div class="app-copy">
             <div class="category"><img class="app-icon" src="assets/products/money-planner/icon.png" width="38" height="38" alt="" loading="lazy">Personal finance</div>
-            <h3 id="planner-title">NalaFin</h3>
-            <p class="description">Estimate how monthly investments could grow, track your net worth and use the Financial Freedom Planner to explore when you could stop working.</p>
-            <a class="button" href="https://play.google.com/store/apps/details?id=com.naladimarth.sipcalculatornetworth" aria-label="Get NalaFin on Google Play">Get it on Google Play</a>
+            <h3 id="planner-title">Financial Calculators: NalaFin</h3>
+            <p class="description">Track your net worth, estimate investment growth, and compare borrowing costs with 129 calculators. Use 5 planners to explore financial freedom, retirement, debt repayment, goals for your children, and buying versus renting a home. Calculations work offline. No sign-in or bank connection required.</p>
+            <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.naladimarth.sipcalculatornetworth" aria-label="Get NalaFin on Google Play">
+              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="646" height="250" loading="lazy" decoding="async" alt="Get it on Google Play">
+            </a>
           </div>
           <div class="app-stage" role="group" aria-label="NalaFin screenshots">
             <div class="phone-frame"><img src="assets/products/money-planner/freedom-planner.webp" width="800" height="1610" loading="lazy" decoding="async" alt="NalaFin Financial Freedom Planner with the planning inputs"></div>
