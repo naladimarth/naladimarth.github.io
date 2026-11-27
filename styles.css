@@ -50,6 +50,7 @@ a:hover { color: white; }
 .topbar nav a:hover, .brand:hover { text-decoration: underline; }
 
 .hero-copy p { font-size: clamp(1rem, 1.5vw, 1.25rem); letter-spacing: .04em; color: #f3edf5; text-shadow: 0 1px 6px #000; }
+.hero-copy .account-note { margin: .65rem auto 0; font-size: .875rem; letter-spacing: normal; }
 .hero-link, .button { display: inline-flex; justify-content: center; align-items: center; min-height: 2.8rem; padding: .72rem 1.5rem; border: 1px solid #ffffff54; border-radius: 3rem; text-decoration: none; font-weight: 600; font-size: .925rem; }
 .hero-link { margin-top: clamp(1rem, 4vh, 2rem); background: #08090bab; backdrop-filter: blur(6px); }
 .hero-link:hover, .button:hover { background: #f3f0e9; color: #0c0c0d; }
@@ -81,11 +82,17 @@ h3 { font-size: clamp(2.5rem, 4.5vw, 4.75rem); }
 .kicker, .category { font-size: .8rem; letter-spacing: .15em; font-weight: 600; margin-bottom: 1.25rem; }
 .description { color: var(--muted); line-height: 1.65; font-size: 1.05rem; max-width: 43ch; margin: 1.3rem 0 1.6rem; }
 
-.finance-grid, .app { display: grid; grid-template-columns: 1fr 1.16fr; gap: clamp(2.6rem, 7vw, 7.5rem); align-items: center; }
+.web-product, .app { display: grid; grid-template-columns: 1fr 1.16fr; gap: clamp(2.6rem, 7vw, 7.5rem); align-items: center; }
 .finance .kicker { color: #d5bd89; }
-.finance-counts { display: grid; gap: 1.2rem; color: #e5d8bb; }
-.finance-counts p { display: flex; align-items: baseline; flex-wrap: wrap; gap: .25rem 1rem; padding-block: .75rem; border-bottom: 1px solid #d4ba852e; }
-.finance-counts strong { font: 500 clamp(2.5rem, 5.2vw, 5rem)/1 var(--serif); color: #edcf93; }
+.tools .kicker { color: var(--tint); }
+.product-art {
+  display: block;
+  width: 100%;
+  height: auto;
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent),
+              linear-gradient(transparent, black 7%, black 93%, transparent);
+  mask-composite: intersect;
+}
 
 .app { --tint: #9bcdda; --stage: #1c353c; }
 
@@ -142,7 +149,7 @@ h3 { font-size: clamp(2.5rem, 4.5vw, 4.75rem); }
   .topbar { inset-inline: 5.5%; }
   .brand { font-size: .75rem; }
   .topbar nav { gap: .8rem; }
-  .finance-grid, .app { grid-template-columns: 1fr; gap: 2rem; }
+  .web-product, .app { grid-template-columns: 1fr; gap: 2rem; }
   .themed .app-copy, .themed .app-stage { grid-column: auto; grid-row: auto; }
 
 
@@ -175,10 +182,28 @@ body { isolation: isolate; }
 }
 .animated .hero-still { opacity: 0; }
 .section { padding-block: clamp(1.25rem, 3.3vw, 3.5rem); }
-.finance { padding-top: clamp(2rem, 5vw, 5rem); }
+.game { padding-top: clamp(2rem, 5vw, 5rem); padding-bottom: 0; }
+.tools { padding-block: 0; }
+.tools + .finance { padding-top: 0; }
 .panel { overflow-wrap: anywhere; border-radius: clamp(1.15rem, 2.8vw, 2.2rem); border: 1px solid #ffffff29; padding: clamp(1.35rem, 4.6vw, 4.6rem); background: #101219f5; box-shadow: 0 1rem 3rem #0003; }
-.finance-grid { --tint: #edcf93; background: #151410f5; }
-:is(.finance-grid, .app) .button {
+.game .game-poster { display: block; padding: 0; overflow: hidden; }
+.game-poster img { display: block; width: 100%; height: auto; }
+.web-product { grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 4rem); }
+.web-product h2 { font-size: clamp(2.7rem, 4.6vw, 4.6rem); text-wrap: balance; }
+.tools .web-product { --tint: #9ad8f0; background: #0b1a20fa; }
+.finance .web-product { --tint: #edcf93; background: #151410f5; }
+.finance .product-art { mask-image: none; }
+@media (min-width: 721px) {
+  .finance .web-product { grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); }
+  .finance .product-art { order: -1; }
+}
+.play-badge {
+  display: block;
+  width: min(12.25rem, 100%);
+  margin-inline-start: -.8rem; /* Align the artwork inside Google's padded badge with the copy. */
+}
+.play-badge img { display: block; width: 100%; height: auto; }
+.web-product .button {
   min-height: 3rem;
   padding-inline: min(1.65rem, 8vw);
   max-width: 100%;
@@ -188,12 +213,12 @@ body { isolation: isolate; }
   font-size: 1rem;
   font-weight: 700;
 }
-:is(.finance-grid, .app) .button:is(:hover, :focus-visible) {
+.web-product .button:is(:hover, :focus-visible) {
   background: #fff6e9;
   border-color: #fff6e9;
 }
 .section-heading { margin-bottom: 1.5rem; font-size: clamp(2.3rem,4.8vw,4.5rem); text-shadow: 0 1px 5px #000; }
-.app + .app { margin-top: clamp(1.3rem, 3vw, 3rem); }
+.game + .tools, .tools + .finance, .app + .app { margin-top: clamp(1.3rem, 3vw, 3rem); }
 @media (max-width: 600px) {
   .hero {
     min-height: clamp(20rem, 59vh, 30rem);
@@ -205,20 +230,26 @@ body { isolation: isolate; }
   .scroll-cue { margin-bottom: .35rem; }
   .wrap { width: calc(100% - 1.5rem); }
   .panel { padding: clamp(1rem, 4.5vw, 1.5rem); }
-  .finance { padding-top: .75rem; }
-  .finance-grid, .app { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
-  .finance-counts { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: .8rem; }
-  .finance-counts p { display: grid; align-content: start; gap: .25rem; }
-  .finance-counts strong { font-size: 2rem; }
+  .game { padding-top: .75rem; }
+  .web-product, .app { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
   .kicker, .category { margin-bottom: .75rem; }
   .category { gap: .6rem; }
   .app-icon { width: 1.85rem; height: 1.85rem; }
-  .finance h2, .app h3 { font-size: clamp(1.875rem, 8vw, 2.5rem); text-wrap: balance; }
-  .finance h2 br, .app h3 br { display: none; }
+  .web-product h2, .app h3 { font-size: clamp(1.875rem, 8vw, 2.5rem); text-wrap: balance; }
+  .app h3 br { display: none; }
   .description { font-size: 1rem; line-height: 1.5; margin: .75rem 0 1rem; }
   .app-stage { padding: 0 0 .3rem; }
   .phone-frame { flex: 0 1 clamp(8rem, 38vw, 11rem); }
   .phone-frame + .phone-frame { display: none; }
+}
+@media (max-width: 720px) {
+  .web-product { grid-template-columns: minmax(0, 1fr); }
+  .product-art { max-width: 26rem; justify-self: center; }
+}
+@media (max-width: 480px) {
+  .hero .topbar { flex-direction: column; justify-content: center; gap: 0; }
+  .hero .brand { padding-bottom: .2rem; }
+  .hero .topbar nav { justify-content: space-evenly; width: 100%; max-width: 23rem; }
 }
 .contact { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; background: linear-gradient(115deg,#18171bf7,#101b20f7); }
 .contact h2 { color: #eda8df; background: linear-gradient(100deg,#bb9cfb,#f78bc7,#ffc089); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; width: fit-content; }
